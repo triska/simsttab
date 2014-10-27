@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirements>
+	<global numslots="35" slotsperday="7"/>
+	<class id="1a">
+		<req subject="sjk" teacher="sjk1" amount="4"/>
+		<req subject="mat" teacher="mat1" amount="5"/>
+		<req subject="anj" teacher="anj1" amount="3"/>
+		<req subject="nej" teacher="nej1" amount="3"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem1" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz1" amount="2"/>
+		<req subject="rai" teacher="rai1" amount="2"/>
+		<req subject="ume" teacher="ume1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+		<coupling subject="sjk" lesson1="2" lesson2="3"/>
+		<free slot="0"/>
+		<free slot="1"/>
+	</class>
+	<class id="1b">
+		<req subject="sjk" teacher="sjk1" amount="4"/>
+		<req subject="mat" teacher="mat2" amount="5"/>
+		<req subject="anj" teacher="anj2" amount="3"/>
+		<req subject="nej" teacher="nej2" amount="3"/>
+		<req subject="zgo" teacher="zgo2" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem2" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz2" amount="2"/>
+		<req subject="rai" teacher="rai1" amount="2"/>
+		<req subject="ume" teacher="ume1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="1c">
+		<req subject="sjk" teacher="sjk2" amount="4"/>
+		<req subject="mat" teacher="mat3" amount="5"/>
+		<req subject="anj" teacher="anj3" amount="3"/>
+		<req subject="nej" teacher="nej1" amount="3"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem1" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz1" amount="2"/>
+		<req subject="rai" teacher="rai1" amount="2"/>
+		<req subject="ume" teacher="ume1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+	</class>
+	<class id="1d">
+		<req subject="sjk" teacher="sjk3" amount="4"/>
+		<req subject="mat" teacher="mat4" amount="5"/>
+		<req subject="anj" teacher="anj3" amount="3"/>
+		<req subject="nej" teacher="nej2" amount="3"/>
+		<req subject="zgo" teacher="zgo2" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem2" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz2" amount="2"/>
+		<req subject="rai" teacher="rai1" amount="2"/>
+		<req subject="ume" teacher="ume1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="2a">
+	        <req subject="sjk" teacher="sjk1" amount="4"/>
+		<req subject="mat" teacher="mat2" amount="5"/>
+		<req subject="anj" teacher="anj1" amount="3"/>
+		<req subject="nej" teacher="nej2" amount="3"/>
+		<req subject="zgo" teacher="zgo2" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem2" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz2" amount="3"/>
+		<req subject="psi" teacher="psi1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="2b">
+		<req subject="sjk" teacher="sjk2" amount="4"/>
+		<req subject="mat" teacher="mat3" amount="5"/>
+		<req subject="anj" teacher="anj2" amount="3"/>
+		<req subject="nej" teacher="nej1" amount="3"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem1" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz1" amount="2"/>
+		<req subject="psi" teacher="psi1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+	</class>
+	<class id="2c">
+		<req subject="sjk" teacher="sjk2" amount="4"/>
+		<req subject="mat" teacher="mat4" amount="5"/>
+		<req subject="anj" teacher="anj2" amount="3"/>
+		<req subject="nej" teacher="nej2" amount="3"/>
+		<req subject="zgo" teacher="zgo2" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem2" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz2" amount="2"/>
+		<req subject="psi" teacher="psi1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="2d">
+		<req subject="sjk" teacher="sjk3" amount="4"/>
+		<req subject="mat" teacher="mat1" amount="5"/>
+		<req subject="anj" teacher="anj3" amount="3"/>
+		<req subject="nej" teacher="nej1" amount="3"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem1" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz1" amount="3"/>
+		<req subject="psi" teacher="psi1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+	</class>
+	<class id="3a">
+		<req subject="sjk" teacher="sjk1" amount="4"/>
+		<req subject="mat" teacher="mat3" amount="4"/>
+		<req subject="anj" teacher="anj1" amount="3"/>
+		<req subject="nej" teacher="nej1" amount="3"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem1" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz1" amount="2"/>
+		<req subject="soc" teacher="soc1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+	</class>
+	<class id="3b">
+		<req subject="sjk" teacher="sjk2" amount="4"/>
+		<req subject="mat" teacher="mat4" amount="4"/>
+		<req subject="anj" teacher="anj1" amount="3"/>
+		<req subject="nej" teacher="nej2" amount="3"/>
+		<req subject="zgo" teacher="zgo2" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem2" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="2"/>
+		<req subject="fiz" teacher="fiz2" amount="2"/>
+		<req subject="soc" teacher="soc1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="3c">
+		<req subject="sjk" teacher="sjk3" amount="4"/>
+		<req subject="mat" teacher="mat1" amount="4"/>
+		<req subject="anj" teacher="anj2" amount="3"/>
+		<req subject="nej" teacher="nej1" amount="3"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem1" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="1"/>
+		<req subject="fiz" teacher="fiz1" amount="2"/>
+		<req subject="soc" teacher="soc1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+	</class>
+	<class id="3d">
+		<req subject="sjk" teacher="sjk1" amount="4"/>
+		<req subject="mat" teacher="mat2" amount="4"/>
+		<req subject="anj" teacher="anj3" amount="3"/>
+		<req subject="nej" teacher="nej2" amount="3"/>
+		<req subject="zgo" teacher="zgo2" amount="2"/>
+		<req subject="geo" teacher="geo1" amount="2"/>
+		<req subject="kem" teacher="kem2" amount="2"/>
+		<req subject="bio" teacher="bio1" amount="1"/>
+		<req subject="fiz" teacher="fiz2" amount="2"/>
+		<req subject="soc" teacher="soc1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="4a">
+		<req subject="sjk" teacher="sjk1" amount="5"/>
+		<req subject="mat" teacher="mat4" amount="5"/>
+		<req subject="anj" teacher="anj1" amount="4"/>
+		<req subject="nej" teacher="nej2" amount="2"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="fil" teacher="fil1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="4b">
+		<req subject="sjk" teacher="sjk2" amount="5"/>
+		<req subject="mat" teacher="mat1" amount="5"/>
+		<req subject="anj" teacher="anj2" amount="4"/>
+		<req subject="nej" teacher="nej1" amount="2"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="fil" teacher="fil1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+	</class>
+	<class id="4c">
+		<req subject="sjk" teacher="sjk3" amount="5"/>
+		<req subject="mat" teacher="mat2" amount="5"/>
+		<req subject="anj" teacher="anj1" amount="4"/>
+		<req subject="nej" teacher="nej2" amount="2"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="fil" teacher="fil1" amount="2"/>
+		<req subject="atvz" teacher="atvz2" amount="3"/>
+	</class>
+	<class id="4d">
+		<req subject="sjk" teacher="sjk3" amount="5"/>
+		<req subject="mat" teacher="mat3" amount="5"/>
+		<req subject="anj" teacher="anj2" amount="4"/>
+		<req subject="nej" teacher="nej1" amount="2"/>
+		<req subject="zgo" teacher="zgo1" amount="2"/>
+		<req subject="fil" teacher="fil1" amount="2"/>
+		<req subject="atvz" teacher="atvz1" amount="3"/>
+		<free slot="6"/>
+	</class>
+	<room id="r1">
+		<allocate class="1a" subject="sjk" lesson="0"/>
+		<allocate class="1a" subject="sjk" lesson="1"/>
+		<allocate class="4c" subject="mat" lesson="0"/>
+		<allocate class="4d" subject="mat" lesson="0"/>
+	</room>
+	<freeday teacher="ume1" day="4"/>
+</requirements>
