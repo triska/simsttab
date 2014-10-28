@@ -247,7 +247,9 @@ attr_values(Attr, Es, Vs) :-
         maplist(list_eqchk(Attr), Es, Vs).
 
 list_eqchk(Attr, E, V) :-
-        memberchk(E=V0, Attr),
+        (   memberchk(E=V0, Attr) -> true
+        ;   throw('attribute expected'-E)
+        ),
         (   numeric_attribute(E) -> atom_number(V0, V)
         ;   V = V0
         ).
