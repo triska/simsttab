@@ -22,7 +22,7 @@
 :- use_module(library(sgml)).
 
 :- dynamic req/4, coupling/4, teacher_freeday/2, slots_per_day/1,
-	   num_slots/1, free_slot/2, room_alloc/4.
+	   num_slots/1, class_freeslot/2, room_alloc/4.
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -80,10 +80,10 @@ list_without_nths(Es0, Ws, Es) :-
 
 without_([], _, Es) --> list(Es).
 without_([W|Ws], Pos0, [E|Es]) -->
-        { Pos1 #= Pos0 + 1 },
-        (   { W =:= Pos0 } -> without_(Ws, Pos1, Es)
+        { Pos #= Pos0 + 1 },
+        (   { W =:= Pos0 } -> without_(Ws, Pos, Es)
         ;   [E],
-            without_([W|Ws], Pos1, Es)
+            without_([W|Ws], Pos, Es)
         ).
 
 
@@ -112,7 +112,7 @@ constrain_class(Rs, Class) :-
         include(class_req(Class), Rs, Sub),
         reqs_varlist(Sub, Vs),
         all_different(Vs),
-        findall(S, free_slot(Class,S), Frees),
+        findall(S, class_freeslot(Class,S), Frees),
         maplist(all_diff_from(Vs), Frees).
 
 
@@ -294,7 +294,7 @@ process_coupling(ClassId, element(coupling,Attr,_)) :-
 
 process_free(ClassId, element(free,Attr,_)) :-
         attr_values(Attr, [slot], [Slot]),
-        assertz(free_slot(ClassId,Slot)).
+        assertz(class_freeslot(ClassId,Slot)).
 
 
 process_class(element(class,Attr,Content)) :-
