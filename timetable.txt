@@ -5,240 +5,240 @@
 Class: 1a
 
 
-free   free   mat   anj   atvz   sjk   nej   
+Day 0:  free   free   mat   anj   atvz   sjk   nej   
 
-mat   ume   anj   atvz   bio   sjk   fiz   
+Day 1:  mat   ume   anj   atvz   bio   sjk   fiz   
 
-mat   ume   anj   geo   kem   sjk   sjk   
+Day 2:  mat   ume   anj   geo   kem   sjk   sjk   
 
-mat   nej   rai   zgo   atvz   bio   fiz   
+Day 3:  mat   nej   rai   zgo   atvz   bio   fiz   
 
-mat   nej   rai   zgo   geo   kem   free   
+Day 4:  mat   nej   rai   zgo   geo   kem   free   
 
 
 
 Class: 1b
 
 
-mat   anj   ume   sjk   atvz   bio   geo   
+Day 0:  mat   anj   ume   sjk   atvz   bio   geo   
 
-mat   nej   fiz   sjk   anj   kem   rai   
+Day 1:  mat   nej   fiz   sjk   anj   kem   rai   
 
-mat   nej   zgo   sjk   ume   atvz   bio   
+Day 2:  mat   nej   zgo   sjk   ume   atvz   bio   
 
-mat   geo   zgo   sjk   anj   rai   fiz   
+Day 3:  mat   geo   zgo   sjk   anj   rai   fiz   
 
-mat   nej   atvz   kem   free   free   free   
+Day 4:  mat   nej   atvz   kem   free   free   free   
 
 
 
 Class: 1c
 
 
-geo   mat   sjk   bio   nej   atvz   anj   
+Day 0:  geo   mat   sjk   bio   nej   atvz   anj   
 
-nej   mat   sjk   kem   ume   zgo   atvz   
+Day 1:  nej   mat   sjk   kem   ume   zgo   atvz   
 
-fiz   mat   sjk   anj   rai   ume   geo   
+Day 2:  fiz   mat   sjk   anj   rai   ume   geo   
 
-kem   mat   sjk   atvz   bio   zgo   anj   
+Day 3:  kem   mat   sjk   atvz   bio   zgo   anj   
 
-rai   mat   fiz   nej   free   free   free   
+Day 4:  rai   mat   fiz   nej   free   free   free   
 
 
 
 Class: 1d
 
 
-mat   bio   geo   sjk   ume   nej   atvz   
+Day 0:  mat   bio   geo   sjk   ume   nej   atvz   
 
-mat   anj   zgo   sjk   fiz   nej   kem   
+Day 1:  mat   anj   zgo   sjk   fiz   nej   kem   
 
-mat   anj   rai   sjk   atvz   kem   ume   
+Day 2:  mat   anj   rai   sjk   atvz   kem   ume   
 
-mat   bio   geo   sjk   fiz   atvz   nej   
+Day 3:  mat   bio   geo   sjk   fiz   atvz   nej   
 
-mat   rai   anj   zgo   free   free   free   
+Day 4:  mat   rai   anj   zgo   free   free   free   
 
 
 
 Class: 2a
 
 
-bio   sjk   mat   geo   anj   fiz   nej   
+Day 0:  bio   sjk   mat   geo   anj   fiz   nej   
 
-atvz   mat   sjk   geo   anj   psi   fiz   
+Day 1:  atvz   mat   sjk   geo   anj   psi   fiz   
 
-bio   mat   sjk   atvz   kem   nej   zgo   
+Day 2:  bio   mat   sjk   atvz   kem   nej   zgo   
 
-anj   mat   sjk   atvz   psi   fiz   kem   
+Day 3:  anj   mat   sjk   atvz   psi   fiz   kem   
 
-nej   mat   zgo   free   free   free   free   
+Day 4:  nej   mat   zgo   free   free   free   free   
 
 
 
 Class: 2b
 
 
-atvz   sjk   mat   nej   fiz   anj   bio   
+Day 0:  atvz   sjk   mat   nej   fiz   anj   bio   
 
-kem   sjk   mat   anj   zgo   geo   nej   
+Day 1:  kem   sjk   mat   anj   zgo   geo   nej   
 
-psi   sjk   mat   atvz   bio   kem   fiz   
+Day 2:  psi   sjk   mat   atvz   bio   kem   fiz   
 
-atvz   sjk   mat   psi   geo   nej   zgo   
+Day 3:  atvz   sjk   mat   psi   geo   nej   zgo   
 
-anj   free   mat   free   free   free   free   
+Day 4:  anj   free   mat   free   free   free   free   
 
 
 
 Class: 2c
 
 
-anj   mat   bio   sjk   geo   kem   fiz   
+Day 0:  anj   mat   bio   sjk   geo   kem   fiz   
 
-anj   mat   atvz   sjk   nej   bio   zgo   
+Day 1:  anj   mat   atvz   sjk   nej   bio   zgo   
 
-atvz   mat   nej   sjk   psi   geo   anj   
+Day 2:  atvz   mat   nej   sjk   psi   geo   anj   
 
-psi   mat   fiz   sjk   kem   nej   zgo   
+Day 3:  psi   mat   fiz   sjk   kem   nej   zgo   
 
-atvz   mat   free   free   free   free   free   
+Day 4:  atvz   mat   free   free   free   free   free   
 
 
 
 Class: 2d
 
 
-mat   atvz   nej   fiz   sjk   anj   psi   
+Day 0:  mat   atvz   nej   fiz   sjk   anj   psi   
 
-fiz   mat   atvz   zgo   sjk   nej   bio   
+Day 1:  fiz   mat   atvz   zgo   sjk   nej   bio   
 
-geo   mat   anj   kem   sjk   atvz   zgo   
+Day 2:  geo   mat   anj   kem   sjk   atvz   zgo   
 
-bio   mat   nej   fiz   sjk   geo   kem   
+Day 3:  bio   mat   nej   fiz   sjk   geo   kem   
 
-anj   mat   psi   free   free   free   free   
+Day 4:  anj   mat   psi   free   free   free   free   
 
 
 
 Class: 3a
 
 
-fiz   nej   sjk   mat   bio   anj   atvz   
+Day 0:  fiz   nej   sjk   mat   bio   anj   atvz   
 
-zgo   sjk   kem   mat   geo   anj   soc   
+Day 1:  zgo   sjk   kem   mat   geo   anj   soc   
 
-nej   sjk   atvz   mat   geo   zgo   kem   
+Day 2:  nej   sjk   atvz   mat   geo   zgo   kem   
 
-nej   sjk   atvz   mat   fiz   anj   bio   
+Day 3:  nej   sjk   atvz   mat   fiz   anj   bio   
 
-soc   free   free   free   free   free   free   
+Day 4:  soc   free   free   free   free   free   free   
 
 
 
 Class: 3b
 
 
-anj   geo   atvz   mat   sjk   zgo   kem   
+Day 0:  anj   geo   atvz   mat   sjk   zgo   kem   
 
-anj   bio   nej   mat   sjk   fiz   atvz   
+Day 1:  anj   bio   nej   mat   sjk   fiz   atvz   
 
-nej   geo   soc   mat   sjk   zgo   atvz   
+Day 2:  nej   geo   soc   mat   sjk   zgo   atvz   
 
-nej   kem   bio   mat   sjk   soc   anj   
+Day 3:  nej   kem   bio   mat   sjk   soc   anj   
 
-fiz   free   free   free   free   free   free   
+Day 4:  fiz   free   free   free   free   free   free   
 
 
 
 Class: 3c
 
 
-nej   zgo   sjk   mat   anj   geo   kem   
+Day 0:  nej   zgo   sjk   mat   anj   geo   kem   
 
-atvz   nej   sjk   mat   fiz   anj   geo   
+Day 1:  atvz   nej   sjk   mat   fiz   anj   geo   
 
-atvz   soc   sjk   mat   fiz   bio   nej   
+Day 2:  atvz   soc   sjk   mat   fiz   bio   nej   
 
-zgo   atvz   sjk   mat   kem   anj   soc   
+Day 3:  zgo   atvz   sjk   mat   kem   anj   soc   
 
-free   free   free   free   free   free   free   
+Day 4:  free   free   free   free   free   free   free   
 
 
 
 Class: 3d
 
 
-nej   atvz   anj   mat   sjk   soc   zgo   
+Day 0:  nej   atvz   anj   mat   sjk   soc   zgo   
 
-nej   geo   kem   mat   sjk   anj   free   
+Day 1:  nej   geo   kem   mat   sjk   anj   free   
 
-fiz   atvz   kem   mat   sjk   anj   nej   
+Day 2:  fiz   atvz   kem   mat   sjk   anj   nej   
 
-atvz   fiz   soc   mat   sjk   zgo   geo   
+Day 3:  atvz   fiz   soc   mat   sjk   zgo   geo   
 
-bio   free   free   free   free   free   free   
+Day 4:  bio   free   free   free   free   free   free   
 
 
 
 Class: 4a
 
 
-sjk   anj   mat   zgo   free   atvz   fil   
+Day 0:  sjk   anj   mat   zgo   free   atvz   fil   
 
-sjk   anj   mat   nej   atvz   fil   free   
+Day 1:  sjk   anj   mat   nej   atvz   fil   free   
 
-sjk   anj   mat   zgo   nej   free   free   
+Day 2:  sjk   anj   mat   zgo   nej   free   free   
 
-sjk   anj   mat   free   atvz   free   free   
+Day 3:  sjk   anj   mat   free   atvz   free   free   
 
-sjk   free   mat   free   free   free   free   
+Day 4:  sjk   free   mat   free   free   free   free   
 
 
 
 Class: 4b
 
 
-sjk   mat   atvz   anj   fil   nej   zgo   
+Day 0:  sjk   mat   atvz   anj   fil   nej   zgo   
 
-sjk   anj   mat   fil   atvz   free   zgo   
+Day 1:  sjk   anj   mat   fil   atvz   free   zgo   
 
-sjk   anj   mat   nej   atvz   free   free   
+Day 2:  sjk   anj   mat   nej   atvz   free   free   
 
-sjk   anj   mat   free   free   free   free   
+Day 3:  sjk   anj   mat   free   free   free   free   
 
-sjk   free   mat   free   free   free   free   
+Day 4:  sjk   free   mat   free   free   free   free   
 
 
 
 Class: 4c
 
 
-sjk   mat   anj   atvz   nej   zgo   free   
+Day 0:  sjk   mat   anj   atvz   nej   zgo   free   
 
-sjk   zgo   mat   anj   fil   atvz   nej   
+Day 1:  sjk   zgo   mat   anj   fil   atvz   nej   
 
-sjk   fil   mat   anj   free   free   free   
+Day 2:  sjk   fil   mat   anj   free   free   free   
 
-sjk   atvz   mat   anj   free   free   free   
+Day 3:  sjk   atvz   mat   anj   free   free   free   
 
-sjk   free   mat   free   free   free   free   
+Day 4:  sjk   free   mat   free   free   free   free   
 
 
 
 Class: 4d
 
 
-mat   sjk   anj   atvz   zgo   fil   free   
+Day 0:  mat   sjk   anj   atvz   zgo   fil   free   
 
-mat   sjk   anj   nej   free   atvz   fil   
+Day 1:  mat   sjk   anj   nej   free   atvz   fil   
 
-mat   sjk   anj   free   zgo   nej   atvz   
+Day 2:  mat   sjk   anj   free   zgo   nej   atvz   
 
-mat   sjk   anj   free   free   free   free   
+Day 3:  mat   sjk   anj   free   free   free   free   
 
-mat   sjk   free   free   free   free   free   
+Day 4:  mat   sjk   free   free   free   free   free   
 
 
 
@@ -247,402 +247,402 @@ mat   sjk   free   free   free   free   free
 Teacher: anj1
 
 
-3b/anj   4a/anj   4c/anj   1a/anj   2a/anj   3a/anj   free   
+Day 0:  3b/anj   4a/anj   4c/anj   1a/anj   2a/anj   3a/anj   free   
 
-3b/anj   4a/anj   1a/anj   4c/anj   2a/anj   3a/anj   free   
+Day 1:  3b/anj   4a/anj   1a/anj   4c/anj   2a/anj   3a/anj   free   
 
-free   4a/anj   1a/anj   4c/anj   free   free   free   
+Day 2:  free   4a/anj   1a/anj   4c/anj   free   free   free   
 
-2a/anj   4a/anj   free   4c/anj   free   3a/anj   3b/anj   
+Day 3:  2a/anj   4a/anj   free   4c/anj   free   3a/anj   3b/anj   
 
-free   free   free   free   free   free   free   
+Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: anj2
 
 
-2c/anj   1b/anj   4d/anj   4b/anj   3c/anj   2b/anj   free   
+Day 0:  2c/anj   1b/anj   4d/anj   4b/anj   3c/anj   2b/anj   free   
 
-2c/anj   4b/anj   4d/anj   2b/anj   1b/anj   3c/anj   free   
+Day 1:  2c/anj   4b/anj   4d/anj   2b/anj   1b/anj   3c/anj   free   
 
-free   4b/anj   4d/anj   free   free   free   2c/anj   
+Day 2:  free   4b/anj   4d/anj   free   free   free   2c/anj   
 
-free   4b/anj   4d/anj   free   1b/anj   3c/anj   free   
+Day 3:  free   4b/anj   4d/anj   free   1b/anj   3c/anj   free   
 
-2b/anj   free   free   free   free   free   free   
+Day 4:  2b/anj   free   free   free   free   free   free   
 
 
 
 Teacher: anj3
 
 
-free   free   3d/anj   free   free   2d/anj   1c/anj   
+Day 0:  free   free   3d/anj   free   free   2d/anj   1c/anj   
 
-free   1d/anj   free   free   free   3d/anj   free   
+Day 1:  free   1d/anj   free   free   free   3d/anj   free   
 
-free   1d/anj   2d/anj   1c/anj   free   3d/anj   free   
+Day 2:  free   1d/anj   2d/anj   1c/anj   free   3d/anj   free   
 
-free   free   free   free   free   free   1c/anj   
+Day 3:  free   free   free   free   free   free   1c/anj   
 
-2d/anj   free   1d/anj   free   free   free   free   
+Day 4:  2d/anj   free   1d/anj   free   free   free   free   
 
 
 
 Teacher: atvz1
 
 
-2b/atvz   2d/atvz   4b/atvz   4d/atvz   1a/atvz   1c/atvz   3a/atvz   
+Day 0:  2b/atvz   2d/atvz   4b/atvz   4d/atvz   1a/atvz   1c/atvz   3a/atvz   
 
-3c/atvz   free   2d/atvz   1a/atvz   4b/atvz   4d/atvz   1c/atvz   
+Day 1:  3c/atvz   free   2d/atvz   1a/atvz   4b/atvz   4d/atvz   1c/atvz   
 
-3c/atvz   free   3a/atvz   2b/atvz   4b/atvz   2d/atvz   4d/atvz   
+Day 2:  3c/atvz   free   3a/atvz   2b/atvz   4b/atvz   2d/atvz   4d/atvz   
 
-2b/atvz   3c/atvz   3a/atvz   1c/atvz   1a/atvz   free   free   
+Day 3:  2b/atvz   3c/atvz   3a/atvz   1c/atvz   1a/atvz   free   free   
 
-free   free   free   free   free   free   free   
+Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: atvz2
 
 
-free   3d/atvz   3b/atvz   4c/atvz   1b/atvz   4a/atvz   1d/atvz   
+Day 0:  free   3d/atvz   3b/atvz   4c/atvz   1b/atvz   4a/atvz   1d/atvz   
 
-2a/atvz   free   2c/atvz   free   4a/atvz   4c/atvz   3b/atvz   
+Day 1:  2a/atvz   free   2c/atvz   free   4a/atvz   4c/atvz   3b/atvz   
 
-2c/atvz   3d/atvz   free   2a/atvz   1d/atvz   1b/atvz   3b/atvz   
+Day 2:  2c/atvz   3d/atvz   free   2a/atvz   1d/atvz   1b/atvz   3b/atvz   
 
-3d/atvz   4c/atvz   free   2a/atvz   4a/atvz   1d/atvz   free   
+Day 3:  3d/atvz   4c/atvz   free   2a/atvz   4a/atvz   1d/atvz   free   
 
-2c/atvz   free   1b/atvz   free   free   free   free   
+Day 4:  2c/atvz   free   1b/atvz   free   free   free   free   
 
 
 
 Teacher: bio1
 
 
-2a/bio   1d/bio   2c/bio   1c/bio   3a/bio   1b/bio   2b/bio   
+Day 0:  2a/bio   1d/bio   2c/bio   1c/bio   3a/bio   1b/bio   2b/bio   
 
-free   3b/bio   free   free   1a/bio   2c/bio   2d/bio   
+Day 1:  free   3b/bio   free   free   1a/bio   2c/bio   2d/bio   
 
-2a/bio   free   free   free   2b/bio   3c/bio   1b/bio   
+Day 2:  2a/bio   free   free   free   2b/bio   3c/bio   1b/bio   
 
-2d/bio   1d/bio   3b/bio   free   1c/bio   1a/bio   3a/bio   
+Day 3:  2d/bio   1d/bio   3b/bio   free   1c/bio   1a/bio   3a/bio   
 
-3d/bio   free   free   free   free   free   free   
+Day 4:  3d/bio   free   free   free   free   free   free   
 
 
 
 Teacher: fil1
 
 
-free   free   free   free   4b/fil   4d/fil   4a/fil   
+Day 0:  free   free   free   free   4b/fil   4d/fil   4a/fil   
 
-free   free   free   4b/fil   4c/fil   4a/fil   4d/fil   
+Day 1:  free   free   free   4b/fil   4c/fil   4a/fil   4d/fil   
 
-free   4c/fil   free   free   free   free   free   
+Day 2:  free   4c/fil   free   free   free   free   free   
 
-free   free   free   free   free   free   free   
+Day 3:  free   free   free   free   free   free   free   
 
-free   free   free   free   free   free   free   
+Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: fiz1
 
 
-3a/fiz   free   free   2d/fiz   2b/fiz   free   free   
+Day 0:  3a/fiz   free   free   2d/fiz   2b/fiz   free   free   
 
-2d/fiz   free   free   free   3c/fiz   free   1a/fiz   
+Day 1:  2d/fiz   free   free   free   3c/fiz   free   1a/fiz   
 
-1c/fiz   free   free   free   3c/fiz   free   2b/fiz   
+Day 2:  1c/fiz   free   free   free   3c/fiz   free   2b/fiz   
 
-free   free   free   2d/fiz   3a/fiz   free   1a/fiz   
+Day 3:  free   free   free   2d/fiz   3a/fiz   free   1a/fiz   
 
-free   free   1c/fiz   free   free   free   free   
+Day 4:  free   free   1c/fiz   free   free   free   free   
 
 
 
 Teacher: fiz2
 
 
-free   free   free   free   free   2a/fiz   2c/fiz   
+Day 0:  free   free   free   free   free   2a/fiz   2c/fiz   
 
-free   free   1b/fiz   free   1d/fiz   3b/fiz   2a/fiz   
+Day 1:  free   free   1b/fiz   free   1d/fiz   3b/fiz   2a/fiz   
 
-3d/fiz   free   free   free   free   free   free   
+Day 2:  3d/fiz   free   free   free   free   free   free   
 
-free   3d/fiz   2c/fiz   free   1d/fiz   2a/fiz   1b/fiz   
+Day 3:  free   3d/fiz   2c/fiz   free   1d/fiz   2a/fiz   1b/fiz   
 
-3b/fiz   free   free   free   free   free   free   
+Day 4:  3b/fiz   free   free   free   free   free   free   
 
 
 
 Teacher: geo1
 
 
-1c/geo   3b/geo   1d/geo   2a/geo   2c/geo   3c/geo   1b/geo   
+Day 0:  1c/geo   3b/geo   1d/geo   2a/geo   2c/geo   3c/geo   1b/geo   
 
-free   3d/geo   free   2a/geo   3a/geo   2b/geo   3c/geo   
+Day 1:  free   3d/geo   free   2a/geo   3a/geo   2b/geo   3c/geo   
 
-2d/geo   3b/geo   free   1a/geo   3a/geo   2c/geo   1c/geo   
+Day 2:  2d/geo   3b/geo   free   1a/geo   3a/geo   2c/geo   1c/geo   
 
-free   1b/geo   1d/geo   free   2b/geo   2d/geo   3d/geo   
+Day 3:  free   1b/geo   1d/geo   free   2b/geo   2d/geo   3d/geo   
 
-free   free   free   free   1a/geo   free   free   
+Day 4:  free   free   free   free   1a/geo   free   free   
 
 
 
 Teacher: kem1
 
 
-free   free   free   free   free   free   3c/kem   
+Day 0:  free   free   free   free   free   free   3c/kem   
 
-2b/kem   free   3a/kem   1c/kem   free   free   free   
+Day 1:  2b/kem   free   3a/kem   1c/kem   free   free   free   
 
-free   free   free   2d/kem   1a/kem   2b/kem   3a/kem   
+Day 2:  free   free   free   2d/kem   1a/kem   2b/kem   3a/kem   
 
-1c/kem   free   free   free   3c/kem   free   2d/kem   
+Day 3:  1c/kem   free   free   free   3c/kem   free   2d/kem   
 
-free   free   free   free   free   1a/kem   free   
+Day 4:  free   free   free   free   free   1a/kem   free   
 
 
 
 Teacher: kem2
 
 
-free   free   free   free   free   2c/kem   3b/kem   
+Day 0:  free   free   free   free   free   2c/kem   3b/kem   
 
-free   free   3d/kem   free   free   1b/kem   1d/kem   
+Day 1:  free   free   3d/kem   free   free   1b/kem   1d/kem   
 
-free   free   3d/kem   free   2a/kem   1d/kem   free   
+Day 2:  free   free   3d/kem   free   2a/kem   1d/kem   free   
 
-free   3b/kem   free   free   2c/kem   free   2a/kem   
+Day 3:  free   3b/kem   free   free   2c/kem   free   2a/kem   
 
-free   free   free   1b/kem   free   free   free   
+Day 4:  free   free   free   1b/kem   free   free   free   
 
 
 
 Teacher: mat1
 
 
-2d/mat   4b/mat   1a/mat   3c/mat   free   free   free   
+Day 0:  2d/mat   4b/mat   1a/mat   3c/mat   free   free   free   
 
-1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
+Day 1:  1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
 
-1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
+Day 2:  1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
 
-1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
+Day 3:  1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
 
-1a/mat   2d/mat   4b/mat   free   free   free   free   
+Day 4:  1a/mat   2d/mat   4b/mat   free   free   free   free   
 
 
 
 Teacher: mat2
 
 
-1b/mat   4c/mat   2a/mat   3d/mat   free   free   free   
+Day 0:  1b/mat   4c/mat   2a/mat   3d/mat   free   free   free   
 
-1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
+Day 1:  1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
 
-1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
+Day 2:  1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
 
-1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
+Day 3:  1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
 
-1b/mat   2a/mat   4c/mat   free   free   free   free   
+Day 4:  1b/mat   2a/mat   4c/mat   free   free   free   free   
 
 
 
 Teacher: mat3
 
 
-4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
+Day 0:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
 
-4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
+Day 1:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
 
-4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
+Day 2:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
 
-4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
+Day 3:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
 
-4d/mat   1c/mat   2b/mat   free   free   free   free   
+Day 4:  4d/mat   1c/mat   2b/mat   free   free   free   free   
 
 
 
 Teacher: mat4
 
 
-1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
+Day 0:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
 
-1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
+Day 1:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
 
-1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
+Day 2:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
 
-1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
+Day 3:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
 
-1d/mat   2c/mat   4a/mat   free   free   free   free   
+Day 4:  1d/mat   2c/mat   4a/mat   free   free   free   free   
 
 
 
 Teacher: nej1
 
 
-3c/nej   3a/nej   2d/nej   2b/nej   1c/nej   4b/nej   1a/nej   
+Day 0:  3c/nej   3a/nej   2d/nej   2b/nej   1c/nej   4b/nej   1a/nej   
 
-1c/nej   3c/nej   free   4d/nej   free   2d/nej   2b/nej   
+Day 1:  1c/nej   3c/nej   free   4d/nej   free   2d/nej   2b/nej   
 
-3a/nej   free   free   4b/nej   free   4d/nej   3c/nej   
+Day 2:  3a/nej   free   free   4b/nej   free   4d/nej   3c/nej   
 
-3a/nej   1a/nej   2d/nej   free   free   2b/nej   free   
+Day 3:  3a/nej   1a/nej   2d/nej   free   free   2b/nej   free   
 
-free   1a/nej   free   1c/nej   free   free   free   
+Day 4:  free   1a/nej   free   1c/nej   free   free   free   
 
 
 
 Teacher: nej2
 
 
-3d/nej   free   free   free   4c/nej   1d/nej   2a/nej   
+Day 0:  3d/nej   free   free   free   4c/nej   1d/nej   2a/nej   
 
-3d/nej   1b/nej   3b/nej   4a/nej   2c/nej   1d/nej   4c/nej   
+Day 1:  3d/nej   1b/nej   3b/nej   4a/nej   2c/nej   1d/nej   4c/nej   
 
-3b/nej   1b/nej   2c/nej   free   4a/nej   2a/nej   3d/nej   
+Day 2:  3b/nej   1b/nej   2c/nej   free   4a/nej   2a/nej   3d/nej   
 
-3b/nej   free   free   free   free   2c/nej   1d/nej   
+Day 3:  3b/nej   free   free   free   free   2c/nej   1d/nej   
 
-2a/nej   1b/nej   free   free   free   free   free   
+Day 4:  2a/nej   1b/nej   free   free   free   free   free   
 
 
 
 Teacher: psi1
 
 
-free   free   free   free   free   free   2d/psi   
+Day 0:  free   free   free   free   free   free   2d/psi   
 
-free   free   free   free   free   2a/psi   free   
+Day 1:  free   free   free   free   free   2a/psi   free   
 
-2b/psi   free   free   free   2c/psi   free   free   
+Day 2:  2b/psi   free   free   free   2c/psi   free   free   
 
-2c/psi   free   free   2b/psi   2a/psi   free   free   
+Day 3:  2c/psi   free   free   2b/psi   2a/psi   free   free   
 
-free   free   2d/psi   free   free   free   free   
+Day 4:  free   free   2d/psi   free   free   free   free   
 
 
 
 Teacher: rai1
 
 
-free   free   free   free   free   free   free   
+Day 0:  free   free   free   free   free   free   free   
 
-free   free   free   free   free   free   1b/rai   
+Day 1:  free   free   free   free   free   free   1b/rai   
 
-free   free   1d/rai   free   1c/rai   free   free   
+Day 2:  free   free   1d/rai   free   1c/rai   free   free   
 
-free   free   1a/rai   free   free   1b/rai   free   
+Day 3:  free   free   1a/rai   free   free   1b/rai   free   
 
-1c/rai   1d/rai   1a/rai   free   free   free   free   
+Day 4:  1c/rai   1d/rai   1a/rai   free   free   free   free   
 
 
 
 Teacher: sjk1
 
 
-4a/sjk   2a/sjk   3a/sjk   1b/sjk   3d/sjk   1a/sjk   free   
+Day 0:  4a/sjk   2a/sjk   3a/sjk   1b/sjk   3d/sjk   1a/sjk   free   
 
-4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   1a/sjk   free   
+Day 1:  4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   1a/sjk   free   
 
-4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   1a/sjk   1a/sjk   
+Day 2:  4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   1a/sjk   1a/sjk   
 
-4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   free   free   
+Day 3:  4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   free   free   
 
-4a/sjk   free   free   free   free   free   free   
+Day 4:  4a/sjk   free   free   free   free   free   free   
 
 
 
 Teacher: sjk2
 
 
-4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
+Day 0:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
 
-4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
+Day 1:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
 
-4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
+Day 2:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
 
-4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
+Day 3:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
 
-4b/sjk   free   free   free   free   free   free   
+Day 4:  4b/sjk   free   free   free   free   free   free   
 
 
 
 Teacher: sjk3
 
 
-4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
+Day 0:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
 
-4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
+Day 1:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
 
-4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
+Day 2:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
 
-4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
+Day 3:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
 
-4c/sjk   4d/sjk   free   free   free   free   free   
+Day 4:  4c/sjk   4d/sjk   free   free   free   free   free   
 
 
 
 Teacher: soc1
 
 
-free   free   free   free   free   3d/soc   free   
+Day 0:  free   free   free   free   free   3d/soc   free   
 
-free   free   free   free   free   free   3a/soc   
+Day 1:  free   free   free   free   free   free   3a/soc   
 
-free   3c/soc   3b/soc   free   free   free   free   
+Day 2:  free   3c/soc   3b/soc   free   free   free   free   
 
-free   free   3d/soc   free   free   3b/soc   3c/soc   
+Day 3:  free   free   3d/soc   free   free   3b/soc   3c/soc   
 
-3a/soc   free   free   free   free   free   free   
+Day 4:  3a/soc   free   free   free   free   free   free   
 
 
 
 Teacher: ume1
 
 
-free   free   1b/ume   free   1d/ume   free   free   
+Day 0:  free   free   1b/ume   free   1d/ume   free   free   
 
-free   1a/ume   free   free   1c/ume   free   free   
+Day 1:  free   1a/ume   free   free   1c/ume   free   free   
 
-free   1a/ume   free   free   1b/ume   1c/ume   1d/ume   
+Day 2:  free   1a/ume   free   free   1b/ume   1c/ume   1d/ume   
 
-free   free   free   free   free   free   free   
+Day 3:  free   free   free   free   free   free   free   
 
-free   free   free   free   free   free   free   
+Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: zgo1
 
 
-free   3c/zgo   free   4a/zgo   4d/zgo   4c/zgo   4b/zgo   
+Day 0:  free   3c/zgo   free   4a/zgo   4d/zgo   4c/zgo   4b/zgo   
 
-3a/zgo   4c/zgo   free   2d/zgo   2b/zgo   1c/zgo   4b/zgo   
+Day 1:  3a/zgo   4c/zgo   free   2d/zgo   2b/zgo   1c/zgo   4b/zgo   
 
-free   free   free   4a/zgo   4d/zgo   3a/zgo   2d/zgo   
+Day 2:  free   free   free   4a/zgo   4d/zgo   3a/zgo   2d/zgo   
 
-3c/zgo   free   free   1a/zgo   free   1c/zgo   2b/zgo   
+Day 3:  3c/zgo   free   free   1a/zgo   free   1c/zgo   2b/zgo   
 
-free   free   free   1a/zgo   free   free   free   
+Day 4:  free   free   free   1a/zgo   free   free   free   
 
 
 
 Teacher: zgo2
 
 
-free   free   free   free   free   3b/zgo   3d/zgo   
+Day 0:  free   free   free   free   free   3b/zgo   3d/zgo   
 
-free   free   1d/zgo   free   free   free   2c/zgo   
+Day 1:  free   free   1d/zgo   free   free   free   2c/zgo   
 
-free   free   1b/zgo   free   free   3b/zgo   2a/zgo   
+Day 2:  free   free   1b/zgo   free   free   3b/zgo   2a/zgo   
 
-free   free   1b/zgo   free   free   3d/zgo   2c/zgo   
+Day 3:  free   free   1b/zgo   free   free   3d/zgo   2c/zgo   
 
-free   free   2a/zgo   1d/zgo   free   free   free   
+Day 4:  free   free   2a/zgo   1d/zgo   free   free   free   

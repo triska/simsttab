@@ -222,7 +222,9 @@ print_objects(Goal, Rs) :-
         foldl(print_object_(Goal,Rs,SPD), Ls, 0, _).
 
 print_object_(Goal, Rs, SPD, _, N0, N) :-
-        (   0 =:= N0 mod SPD -> nl, nl
+        (   0 =:= N0 mod SPD ->
+            Day #= N0 / SPD,
+            format("\n\nDay ~w:  ", [Day])
         ;   true
         ),
         (   call(Goal, Rs, N0, S) -> true
