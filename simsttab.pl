@@ -56,7 +56,7 @@ all_rooms(Rooms) :-
         findall(Room, room_alloc(Room,_C,_S,_Slot), Rooms0),
         sort(Rooms0, Rooms).
 
-timetab_(Rs, Vars) :-
+requirements_variables(Rs, Vars) :-
         all_reqs(Rs),
         reqs_varlist(Rs, Vars),
         num_slots(Numslots),
@@ -75,19 +75,20 @@ slot_quotient(S, Q) :-
         Q #= S / SPD.
 
 
-ignore_nths(Is, Es0, Es) :- phrase(ignore_(Is, 0, Es0), Es).
+list_without_nths(Es0, Ws, Es) :-
+        phrase(without_(Ws, 0, Es0), Es).
 
-ignore_([], _, Es) --> list(Es).
-ignore_([I|Is], Pos0, [E|Es]) -->
+without_([], _, Es) --> list(Es).
+without_([W|Ws], Pos0, [E|Es]) -->
         { Pos1 #= Pos0 + 1 },
-        (   { I =:= Pos0 } -> ignore_(Is, Pos1, Es)
+        (   { W =:= Pos0 } -> without_(Ws, Pos1, Es)
         ;   [E],
-            ignore_([I|Is], Pos1, Es)
+            without_([W|Ws], Pos1, Es)
         ).
 
 
-%:- ignore_nths([3], [a,b,c,d], [a,b,c]).
-%:- ignore_nths([1,2], [a,b,c,d], [a,d]).
+%:- list_without_nths([a,b,c,d], [3], [a,b,c]).
+%:- list_without_nths([a,b,c,d], [1,2], [a,d]).
 
 slots_couplings(Slots, F-S) :-
         nth0(F, Slots, S1),
@@ -100,8 +101,8 @@ constrain_subject(req(Class,Subj,_Teacher,_Num)-Slots) :-
         findall(F-S, coupling(Class,Subj,F,S), Cs),
         maplist(slots_couplings(Slots), Cs),
         findall(Second, coupling(Class,Subj,_First,Second), Couplings0),
-        sort(Couplings0, Couplings1),
-        ignore_nths(Couplings1, Qs0, Qs),
+        sort(Couplings0, Couplings),
+        list_without_nths(Qs0, Couplings, Qs),
         strictly_ascending(Qs).
 
 
@@ -326,7 +327,7 @@ process_freeday(element(freeday,Attr,_)) :-
 
 run :-
         process_input('reqs.xml'),
-        timetab_(Rs, Vs),
+        requirements_variables(Rs, Vs),
         labeling([ff], Vs),
         print_classes(Rs),
         nl, nl,
