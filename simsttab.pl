@@ -59,9 +59,9 @@ all_rooms(Rooms) :-
 requirements_variables(Rs, Vars) :-
         all_reqs(Rs),
         reqs_varlist(Rs, Vars),
-        num_slots(Numslots),
-        Numslots1 is Numslots - 1,
-        Vars ins 0..Numslots1,
+        num_slots(NumSlots0),
+        NumSlots #= NumSlots0 - 1,
+        Vars ins 0..NumSlots,
         maplist(constrain_subject, Rs),
         all_classes(Classes),
         all_teachers(Teachers),
@@ -100,9 +100,9 @@ constrain_subject(req(Class,Subj,_Teacher,_Num)-Slots) :-
         maplist(slot_quotient, Slots, Qs0),
         findall(F-S, coupling(Class,Subj,F,S), Cs),
         maplist(slots_couplings(Slots), Cs),
-        findall(Second, coupling(Class,Subj,_First,Second), Couplings0),
-        sort(Couplings0, Couplings),
-        list_without_nths(Qs0, Couplings, Qs),
+        pairs_values(Cs, Seconds0),
+        sort(Seconds0, Seconds),
+        list_without_nths(Qs0, Seconds, Qs),
         strictly_ascending(Qs).
 
 
