@@ -1,6 +1,6 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   Simsttab -- Simplistic school time tabler
-  Copyright (C) 2005, 2014 Markus Triska triska@gmx.at
+  Copyright (C) 2005, 2014, 2016 Markus Triska triska@metalevel.at
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 
 :- use_module(library(clpfd)).
 :- use_module(library(sgml)).
+:- use_module(library(xpath)).
 
 :- dynamic req/4, coupling/4, teacher_freeday/2, slots_per_day/1,
 	   num_slots/1, class_freeslot/2, room_alloc/4.
@@ -28,51 +29,63 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 			 Posting constraints
 
-   Initially, a requirement is represented as a term req(C,S,T,N),
-   meaning that N times a week (on different days), class C is to be
-   taught subject S by teacher T. A requirement R is then transformed
-   to a term R-Ls, where Ls is a list of length N. The elements of
-   this list are variables and act as placeholders for the time slots
-   of the scheduled lessons of requirement R. To break symmetry, the
-   elements of Ls are constrained to be strictly ascending (it follows
-   that they are all_different). The time slots of each teacher are
-   constrained to be all_different/1. The time slots divided by
-   slots_per_day are constrained to be strictly ascending (= enforce
-   distinct days), except for coupled lessons. The time slots of each
-   class, and of lessons occupying the same room, are constrained to
-   be all_different/1. Labeling is performed on all slot variables.
+   The most important data structure in this CSP are pairs of the form
+
+      Req-Vs
+
+   where Req is a term of the form req(C,S,T,N) (see below), and Vs is
+   a list of length N. The elements of Vs are finite domain variables
+   that denote the *time slots* of the scheduled lessons of Req. We
+   call this list of Req-Vs pairs the requirements.
+
+   To break symmetry, the elements of Vs are constrained to be
+   strictly ascending (it follows that they are all_different/1).
+
+   Further, the time slots of each teacher are constrained to be
+   all_different/1.
+
+   For each requirement, the time slots divided by slots_per_day are
+   constrained to be strictly ascending to enforce distinct days,
+   except for coupled lessons.
+
+   The time slots of each class, and of lessons occupying the same
+   room, are constrained to be all_different/1.
+
+   Labeling is performed on all slot variables.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-all_reqs(Rs) :-
+requirements(Rs) :-
         setof(req(Class,Sub,Teacher,Num), req(Class,Sub,Teacher,Num), Rs0),
-        maplist(req_with_joblist, Rs0, Rs).
+        maplist(req_with_slots, Rs0, Rs).
 
-all_classes(Classes) :- setof(C, S^N^T^req(C,S,T,N), Classes).
+req_with_slots(R, R-Slots) :- R = req(_,_,_,N), length(Slots, N).
 
-all_teachers(Teachers) :- setof(T, C^S^N^req(C,S,T,N), Teachers).
+classes(Classes) :- setof(C, S^N^T^req(C,S,T,N), Classes).
 
-all_rooms(Rooms) :-
+teachers(Teachers) :- setof(T, C^S^N^req(C,S,T,N), Teachers).
+
+rooms(Rooms) :-
         findall(Room, room_alloc(Room,_C,_S,_Slot), Rooms0),
         sort(Rooms0, Rooms).
 
 requirements_variables(Rs, Vars) :-
-        all_reqs(Rs),
-        reqs_varlist(Rs, Vars),
+        requirements(Rs),
+        pairs_slots(Rs, Vars),
         num_slots(NumSlots0),
         NumSlots #= NumSlots0 - 1,
         Vars ins 0..NumSlots,
         maplist(constrain_subject, Rs),
-        all_classes(Classes),
-        all_teachers(Teachers),
-        all_rooms(Rooms),
+        classes(Classes),
+        teachers(Teachers),
+        rooms(Rooms),
         maplist(constrain_teacher(Rs), Teachers),
         maplist(constrain_class(Rs), Classes),
         maplist(constrain_room(Rs), Rooms).
 
 slot_quotient(S, Q) :-
         slots_per_day(SPD),
-        Q #= S / SPD.
+        Q #= S // SPD.
 
 
 list_without_nths(Es0, Ws, Es) :-
@@ -110,7 +123,7 @@ all_diff_from(Vs, F) :- maplist(#\=(F), Vs).
 
 constrain_class(Rs, Class) :-
         include(class_req(Class), Rs, Sub),
-        reqs_varlist(Sub, Vs),
+        pairs_slots(Sub, Vs),
         all_different(Vs),
         findall(S, class_freeslot(Class,S), Frees),
         maplist(all_diff_from(Vs), Frees).
@@ -118,7 +131,7 @@ constrain_class(Rs, Class) :-
 
 constrain_teacher(Rs, Teacher) :-
         include(teacher_req(Teacher), Rs, Sub),
-        reqs_varlist(Sub, Vs),
+        pairs_slots(Sub, Vs),
         all_different(Vs),
         (   teacher_freeday(Teacher,F) ->
             maplist(slot_quotient, Vs, Qs),
@@ -150,27 +163,16 @@ strictly_ascending(Ls) :- chain(Ls, #<).
 %teacher_freeday(1,4).
 %teacher_freeday(3,0).
 
-
-
-req_with_joblist(R, R-Slots) :- arg(4, R, N), length(Slots, N).
-
-
-class_req(C, req(C,_S,_T,_N)-_List).
-
-teacher_req(T, req(_C,_S,T,_N)-_List).
-
-
-reqs_varlist(Rs, Vs) :- phrase(reqs_varlist_(Rs), Vs).
-
-reqs_varlist_([]) --> [].
-reqs_varlist_([req(_C,_S,_N,_T)-Vars|Rs]) -->
-        list(Vars),
-        reqs_varlist_(Rs).
-
 list([])     --> [].
 list([E|Es]) --> [E], list(Es).
 
+class_req(C, req(C,_S,_T,_N)-_).
 
+teacher_req(T, req(_C,_S,T,_N)-_).
+
+pairs_slots(Ps, Vs) :-
+        pairs_values(Ps, Vs0),
+        append(Vs0, Vs).
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 			       Printing
@@ -181,7 +183,7 @@ list([E|Es]) --> [E], list(Es).
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 print_teachers(Rs) :-
-        all_teachers(Ts),
+        teachers(Ts),
         maplist(print_teacher(Rs), Ts).
 
 print_teacher(Rs, Teacher) :-
@@ -200,7 +202,7 @@ teacher_nth(Rs, N, C/Subj) :-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 print_classes(Rs) :-
-        all_classes(Cs),
+        classes(Cs),
         maplist(print_class(Rs), Cs).
 
 print_class(Rs, Class) :-
@@ -224,7 +226,7 @@ print_objects(Goal, Rs) :-
 
 print_object_(Goal, Rs, SPD, _, N0, N) :-
         (   0 =:= N0 mod SPD ->
-            Day #= N0 / SPD,
+            Day #= N0 // SPD,
             format("\n\nDay ~w:  ", [Day])
         ;   true
         ),
@@ -236,25 +238,42 @@ print_object_(Goal, Rs, SPD, _, N0, N) :-
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Parse XML file. This part of the program contains side-effects: It
-   asserts facts read from the XML file to make them more conveniently
-   accessible in the remainder of the program.
+   Parse XML file.
+
+   This part of the program translates the XML file to a list of
+   Prolog terms that describe the requirements. library(xpath) is used
+   to access nodes of the XML file. A DCG describes the list of Prolog
+   terms. The most important of them are:
+
+   *) req(C,S,T,N)
+        Class C is to be taught subject S by teacher T; N times a week
+        (on different days)
+
+   *) coupling(C,S,J,K)
+        In class C, subject S contains a coupling: The J-th lesson of S
+        directly precedes the K-th lesson, on the same day.
+
+   *) teacher_freeday(T, D)
+        Teacher T must not have any lessons scheduled on day D.
+
+   These terms can all be dynamically asserted to make the
+   requirements globally accessible.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    Extract option values from tag attributes.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-attr_values(Attr, Es, Vs) :-
-        must_be(list(ground), Es),
-        maplist(list_eqchk(Attr), Es, Vs).
+attrs_values(Node, As, Vs) :-
+        must_be(list(atom), As),
+        maplist(attr_value(Node), As, Vs).
 
-list_eqchk(Attr, E, V) :-
-        (   memberchk(E=V0, Attr) -> true
-        ;   throw('attribute expected'-E)
+attr_value(Node, Attr, Value) :-
+        (   xpath(Node, /self(@Attr), Value0) -> true
+        ;   throw('attribute expected'-Node-Attr)
         ),
-        (   numeric_attribute(E) -> atom_number(V0, V)
-        ;   V = V0
+        (   numeric_attribute(Attr) -> atom_number(Value0, Value)
+        ;   Value = Value0
         ).
 
 numeric_attribute(amount).
@@ -267,73 +286,88 @@ numeric_attribute(lesson).
 numeric_attribute(day).
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Processing.
+   A DCG relates the XML file to a list of Prolog terms.
+
+   Example query:
+
+      ?- phrase(requirements('reqs.xml'), Rs).
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-process_input(File) :-
-        load_xml_file(File, AST),
-        memberchk(element(requirements,_,Content), AST),
-        process_globals(Content),
-        process_nodes(class, Content, process_class),
-        process_nodes(room, Content, process_room),
-        process_nodes(freeday, Content, process_freeday).
+requirements(File) -->
+        { load_xml_file(File, AST),
+          xpath_chk(AST, //requirements, R) },
+        globals(R),
+        process_nodes(class, R, process_class),
+        process_nodes(room, R, process_room),
+        process_nodes(freeday, R, process_freeday).
 
-xml_element(E, element(E,_,_)).
+process_nodes(What, R, Goal) -->
+        { findall(Element, xpath(R, //What, Element), Elements) },
+        elements_(Elements, Goal).
 
-process_nodes(What, Content0, Goal) :-
-        include(xml_element(What), Content0, Content),
-        maplist(Goal, Content).
+elements_([], _) --> [].
+elements_([E|Es], Goal) -->
+        call(Goal, E),
+        elements_(Es, Goal).
 
-process_req(ClassId, element(req,Attr,_)) :-
-        attr_values(Attr, [subject,teacher,amount], [Subject,Teacher,Amount]),
-        assertz(req(ClassId,Subject,Teacher,Amount)).
+process_req(ClassId, Node) -->
+        { attrs_values(Node, [subject,teacher,amount], [Subject,Teacher,Amount]) },
+        [req(ClassId,Subject,Teacher,Amount)].
 
-process_coupling(ClassId, element(coupling,Attr,_)) :-
-        attr_values(Attr, [subject,lesson1,lesson2], [Subject,Slot1,Slot2]),
-        assertz(coupling(ClassId,Subject,Slot1,Slot2)).
+process_coupling(ClassId, Node) -->
+        { attrs_values(Node, [subject,lesson1,lesson2], [Subject,Slot1,Slot2]) },
+        [coupling(ClassId,Subject,Slot1,Slot2)].
 
-process_free(ClassId, element(free,Attr,_)) :-
-        attr_values(Attr, [slot], [Slot]),
-        assertz(class_freeslot(ClassId,Slot)).
-
-
-process_class(element(class,Attr,Content)) :-
-        attr_values(Attr, [id], [Id]),
-        process_nodes(req, Content, process_req(Id)),
-        process_nodes(coupling, Content, process_coupling(Id)),
-        process_nodes(free, Content, process_free(Id)).
-
-process_globals(Content) :-
-        memberchk(element(global,GlobAttr,_), Content),
-        attr_values(GlobAttr, [numslots,slotsperday], [NumSlots,SlotsPerDay]),
-        assertz(slots_per_day(SlotsPerDay)),
-        assertz(num_slots(NumSlots)).
+process_free(ClassId, Node) -->
+        { attrs_values(Node, [slot], [Slot]) },
+        [class_freeslot(ClassId,Slot)].
 
 
-process_room(element(room,Attr,Content)) :-
-        attr_values(Attr, [id], [Id]),
-        process_nodes(allocate, Content, process_allocation(Id)).
+process_class(Node) -->
+        { attrs_values(Node, [id], [Id]) },
+        process_nodes(req, Node, process_req(Id)),
+        process_nodes(coupling, Node, process_coupling(Id)),
+        process_nodes(free, Node, process_free(Id)).
 
-process_allocation(RoomId, element(allocate,Attr,_)) :-
-        attr_values(Attr, [class,subject,lesson], [Class,Subject,Lesson]),
-        assertz(room_alloc(RoomId,Class,Subject,Lesson)).
-
-process_freeday(element(freeday,Attr,_)) :-
-        attr_values(Attr, [teacher,day], [Teacher,Day]),
-        assertz(teacher_freeday(Teacher,Day)).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+globals(Content) -->
+        { xpath_chk(Content, //global, Global),
+          attrs_values(Global, [numslots,slotsperday], [NumSlots,SlotsPerDay]) },
+        [slots_per_day(SlotsPerDay),num_slots(NumSlots)].
 
 
-run :-
-        process_input('reqs.xml'),
-        requirements_variables(Rs, Vs),
-        labeling([ff], Vs),
-        print_classes(Rs),
-        nl, nl,
-        print_teachers(Rs),
-        nl.
+process_room(Node) -->
+        { attrs_values(Node, [id], [Id]) },
+        process_nodes(allocate, Node, process_allocation(Id)).
+
+process_allocation(RoomId, Node) -->
+        { attrs_values(Node, [class,subject,lesson], [Class,Subject,Lesson]) },
+        [room_alloc(RoomId,Class,Subject,Lesson)].
+
+process_freeday(Node) -->
+        { attrs_values(Node, [teacher,day], [Teacher,Day]) },
+        [teacher_freeday(Teacher,Day)].
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   Execution entry point.
+
+   This is the only part of the program that contains side-effects:
+   The parsed requirements are asserted to make them easily accessible
+   as Prolog facts.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+timetable(File) :-
+        phrase(requirements(File), Reqs),
+        setup_call_cleanup(maplist(assertz, Reqs),
+                           (   requirements_variables(Rs, Vs),
+                               labeling([ff], Vs),
+                               print_classes(Rs),
+                               nl, nl,
+                               print_teachers(Rs),
+                               nl
+                           ),
+                           maplist(retract, Reqs)).
+
+run :- timetable('reqs.xml').
 
 %?- time(run).
-
-:- initialization((run,halt)).
