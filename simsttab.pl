@@ -351,9 +351,8 @@ process_freeday(Node) -->
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    Execution entry point.
 
-   This is the only part of the program that contains side-effects:
    The parsed requirements are asserted to make them easily accessible
-   as Prolog facts.
+   as Prolog facts. On cleanup, all asserted facts are retracted.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 timetable(File) :-
