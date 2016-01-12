@@ -94,7 +94,7 @@ list_without_nths(Es0, Ws, Es) :-
 without_([], _, Es) --> list(Es).
 without_([W|Ws], Pos0, [E|Es]) -->
         { Pos #= Pos0 + 1 },
-        (   { W =:= Pos0 } -> without_(Ws, Pos, Es)
+        (   { W #= Pos0 } -> without_(Ws, Pos, Es)
         ;   [E],
             without_([W|Ws], Pos, Es)
         ).
@@ -225,7 +225,7 @@ print_objects(Goal, Rs) :-
         foldl(print_object_(Goal,Rs,SPD), Ls, 0, _).
 
 print_object_(Goal, Rs, SPD, _, N0, N) :-
-        (   0 =:= N0 mod SPD ->
+        (   0 #= N0 mod SPD ->
             Day #= N0 // SPD,
             format("\n\nDay ~w:  ", [Day])
         ;   true
