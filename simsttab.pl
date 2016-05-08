@@ -355,18 +355,39 @@ process_freeday(Node) -->
    as Prolog facts. On cleanup, all asserted facts are retracted.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-timetable(File) :-
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   Core relation: timetable_(+File, -Rs, -Vs)
+   The first argument is the XML file containing the requirements. Rs are
+   the parsed requirements, and Vs is a list of finite domain variables
+   that need to be labeled. An artificial choice point is introduced
+   to retain the asserted facts until backtracking or commit.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+timetable_(File, Rs, Vs) :-
         phrase(requirements(File), Reqs),
         setup_call_cleanup(maplist(assertz, Reqs),
-                           (   requirements_variables(Rs, Vs),
-                               labeling([ff], Vs),
-                               print_classes(Rs),
-                               nl, nl,
-                               print_teachers(Rs),
-                               nl
+                           (   requirements_variables(Rs, Vs)
+                           ;   true % retain the facts until cleanup
                            ),
                            maplist(retract, Reqs)).
 
+timetable(File) :-
+        timetable_(File, Rs, Vs),
+        labeling([ff], Vs),
+        print_classes(Rs),
+        nl, nl,
+        print_teachers(Rs),
+        nl.
+
+
 run :- timetable('reqs.xml').
 
-%?- time(run).
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   ?- time(run).
+
+   ?- timetable_('reqs.xml', Rs, Vs).
+
+   ?- timetable_('reqs.xml', Rs, Vs), labeling([ff], Vs).
+   Rs = [req('1a', anj, anj1, 3)-[3, 9, 16], req('1a', atvz, atvz1, 3)-[4, 10, 25], req('1a', bio, bio1, 2)-[11, 26], req('1a', fiz, fiz1, 2)-[13, 27], req('1a', geo, geo1, 2)-[17, 32], req('1a', kem, kem1, 2)-[18, 33], req('1a', mat, mat1, 5)-[2|...], req(..., ..., ..., ...)-[...|...], ... - ...|...],
+   Vs = [3, 9, 16, 4, 10, 25, 11, 26, 13|...] .
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
