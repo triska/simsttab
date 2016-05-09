@@ -2,7 +2,7 @@
 
 See
 
-   [**http://www.metalevel.at/simsttab/**](http://www.metalevel.at/simsttab/)
+   [**https://www.metalevel.at/simsttab/**](https://www.metalevel.at/simsttab/)
 
 for more information.
 
