@@ -1,6 +1,6 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   Simsttab -- Simplistic school time tabler
-  Copyright (C) 2005, 2014, 2016 Markus Triska triska@metalevel.at
+  Copyright (C) 2005, 2014, 2016, 2019 Markus Triska triska@metalevel.at
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -15,6 +15,13 @@
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+  For more information about this program, visit:
+
+          https://www.metalevel.at/simsttab/
+          ==================================
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
@@ -56,7 +63,8 @@
 
 
 requirements(Rs) :-
-        setof(req(Class,Sub,Teacher,Num), req(Class,Sub,Teacher,Num), Rs0),
+        Goal = req(_Class,_Subject,_Teacher,_Number),
+        setof(Goal, Goal, Rs0),
         maplist(req_with_slots, Rs0, Rs).
 
 req_with_slots(R, R-Slots) :- R = req(_,_,_,N), length(Slots, N).
@@ -175,30 +183,53 @@ pairs_slots(Ps, Vs) :-
         append(Vs0, Vs).
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-			       Printing
+   Relate teachers and classes to list of days.
+
+   Each day is a list of subjects (for classes), and a list of
+   class/subject terms (for teachers). The predicate days_variables/2
+   yields a list of days with the right dimensions, where each element
+   is a free variable.
+
+   We use the atom 'free' to denote a free slot, and the compound term
+   verbatim(E) to denote the verbatim element E. This clean symbolic
+   distinction is used to support subjects that are called 'free'.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Teachers.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+days_variables(Days, Vs) :-
+        num_slots(NumSlots),
+        slots_per_day(SPD),
+        NumDays #= NumSlots // SPD,
+        length(Days, NumDays),
+        length(Day, SPD),
+        maplist(same_length(Day), Days),
+        append(Days, Vs).
 
-print_teachers(Rs) :-
-        teachers(Ts),
-        maplist(print_teacher(Rs), Ts).
-
-print_teacher(Rs, Teacher) :-
-        format("\n\n\n\nTeacher: ~w\n", [Teacher]),
+teacher_days(Rs, Teacher, Days) :-
+        days_variables(Days, Vs),
         include(teacher_req(Teacher), Rs, Sub),
-        print_objects(teacher_nth, Sub).
+        foldl(v_teacher(Sub), Vs, 0, _).
 
+v_teacher(Rs, V, N0, N) :-
+        (   member(req(C,Subj,_,_)-Times, Rs),
+            member(N0, Times) -> V = verbatim(C/Subj)
+        ;   V = free
+        ),
+        N #= N0 + 1.
 
-teacher_nth(Rs, N, C/Subj) :-
-        member(req(C,Subj,_,_)-Times, Rs),
-        member(N, Times).
+class_days(Rs, Class, Days) :-
+        days_variables(Days, Vs),
+        include(class_req(Class), Rs, Sub),
+        foldl(v(Sub), Vs, 0, _).
 
+v(Rs, V, N0, N) :-
+        (   member(req(_,Class,_,_)-Times, Rs),
+            member(N0, Times) -> V = verbatim(Class)
+        ;   V = free
+        ),
+        N #= N0 + 1.
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Classes.
+   Print objects in roster.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 print_classes(Rs) :-
@@ -206,36 +237,39 @@ print_classes(Rs) :-
         maplist(print_class(Rs), Cs).
 
 print_class(Rs, Class) :-
-        format("\n\n\n\nClass: ~w\n", Class),
-        include(class_req(Class), Rs, Sub),
-        print_objects(class_nth, Sub).
+        class_days(Rs, Class, Days0),
+        transpose(Days0, Days),
+        format("\n\n\n\nClass: ~w\n\n", Class),
+        print_weekdays_header,
+        maplist(align_row, Days).
 
-class_nth(Rs, N, Subj) :-
-        member(req(_,Subj,_,_)-Times, Rs),
-        member(N, Times).
+align_row(Cs) :-
+        maplist(align_, Cs),
+        nl.
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Print objects in roster.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+align_(free) :- align_(verbatim('')).
+align_(verbatim(Element)) :-
+        format("~|~t~w~t~8+", [Element]).
 
-print_objects(Goal, Rs) :-
-        num_slots(NumSlots),
-        slots_per_day(SPD),
-        length(Ls, NumSlots),
-        foldl(print_object_(Goal,Rs,SPD), Ls, 0, _).
+print_teachers(Rs) :-
+        teachers(Ts),
+        maplist(print_teacher(Rs), Ts).
 
-print_object_(Goal, Rs, SPD, _, N0, N) :-
-        (   0 #= N0 mod SPD ->
-            Day #= N0 // SPD,
-            format("\n\nDay ~w:  ", [Day])
-        ;   true
-        ),
-        (   call(Goal, Rs, N0, S) -> true
-        ;   S = free
-        ),
-        format("~w   ",[S]),
-        N #= N0 + 1.
+print_teacher(Rs, Teacher) :-
+        teacher_days(Rs, Teacher, Days0),
+        transpose(Days0, Days),
+        format("\n\n\n\nTeacher: ~w\n\n", [Teacher]),
+        print_weekdays_header,
+        maplist(align_row, Days).
 
+print_weekdays_header :-
+        maplist(with_verbatim,
+                ['Mon','Tue','Wed','Thu','Fri'],
+                Vs),
+        align_row(Vs),
+        format("~`=t~40|\n").
+
+with_verbatim(T, verbatim(T)).
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    Parse XML file.

@@ -4,241 +4,241 @@
 
 Class: 1a
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+          mat     mat     mat     mat   
+          ume     ume     nej     nej   
+  mat     anj     anj     rai     rai   
+  anj     atvz    geo     zgo     zgo   
+  atvz    bio     kem     atvz    geo   
+  sjk     sjk     sjk     bio     kem   
+  nej     fiz     sjk     fiz           
 
-Day 0:  free   free   mat   anj   atvz   sjk   nej   
-
-Day 1:  mat   ume   anj   atvz   bio   sjk   fiz   
-
-Day 2:  mat   ume   anj   geo   kem   sjk   sjk   
-
-Day 3:  mat   nej   rai   zgo   atvz   bio   fiz   
-
-Day 4:  mat   nej   rai   zgo   geo   kem   free   
 
 
 
 Class: 1b
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  mat     mat     mat     mat     mat   
+  anj     nej     nej     geo     nej   
+  ume     fiz     zgo     zgo     atvz  
+  sjk     sjk     sjk     sjk     kem   
+  atvz    anj     ume     anj           
+  bio     kem     atvz    rai           
+  geo     rai     bio     fiz           
 
-Day 0:  mat   anj   ume   sjk   atvz   bio   geo   
-
-Day 1:  mat   nej   fiz   sjk   anj   kem   rai   
-
-Day 2:  mat   nej   zgo   sjk   ume   atvz   bio   
-
-Day 3:  mat   geo   zgo   sjk   anj   rai   fiz   
-
-Day 4:  mat   nej   atvz   kem   free   free   free   
 
 
 
 Class: 1c
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  geo     nej     fiz     kem     rai   
+  mat     mat     mat     mat     mat   
+  sjk     sjk     sjk     sjk     fiz   
+  bio     kem     anj     atvz    nej   
+  nej     ume     rai     bio           
+  atvz    zgo     ume     zgo           
+  anj     atvz    geo     anj           
 
-Day 0:  geo   mat   sjk   bio   nej   atvz   anj   
-
-Day 1:  nej   mat   sjk   kem   ume   zgo   atvz   
-
-Day 2:  fiz   mat   sjk   anj   rai   ume   geo   
-
-Day 3:  kem   mat   sjk   atvz   bio   zgo   anj   
-
-Day 4:  rai   mat   fiz   nej   free   free   free   
 
 
 
 Class: 1d
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  mat     mat     mat     mat     mat   
+  bio     anj     anj     bio     rai   
+  geo     zgo     rai     geo     anj   
+  sjk     sjk     sjk     sjk     zgo   
+  ume     fiz     atvz    fiz           
+  nej     nej     kem     atvz          
+  atvz    kem     ume     nej           
 
-Day 0:  mat   bio   geo   sjk   ume   nej   atvz   
-
-Day 1:  mat   anj   zgo   sjk   fiz   nej   kem   
-
-Day 2:  mat   anj   rai   sjk   atvz   kem   ume   
-
-Day 3:  mat   bio   geo   sjk   fiz   atvz   nej   
-
-Day 4:  mat   rai   anj   zgo   free   free   free   
 
 
 
 Class: 2a
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  bio     atvz    bio     anj     nej   
+  sjk     mat     mat     mat     mat   
+  mat     sjk     sjk     sjk     zgo   
+  geo     geo     atvz    atvz          
+  anj     anj     kem     psi           
+  fiz     psi     nej     fiz           
+  nej     fiz     zgo     kem           
 
-Day 0:  bio   sjk   mat   geo   anj   fiz   nej   
-
-Day 1:  atvz   mat   sjk   geo   anj   psi   fiz   
-
-Day 2:  bio   mat   sjk   atvz   kem   nej   zgo   
-
-Day 3:  anj   mat   sjk   atvz   psi   fiz   kem   
-
-Day 4:  nej   mat   zgo   free   free   free   free   
 
 
 
 Class: 2b
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  atvz    kem     psi     atvz    anj   
+  sjk     sjk     sjk     sjk           
+  mat     mat     mat     mat     mat   
+  nej     anj     atvz    psi           
+  fiz     zgo     bio     geo           
+  anj     geo     kem     nej           
+  bio     nej     fiz     zgo           
 
-Day 0:  atvz   sjk   mat   nej   fiz   anj   bio   
-
-Day 1:  kem   sjk   mat   anj   zgo   geo   nej   
-
-Day 2:  psi   sjk   mat   atvz   bio   kem   fiz   
-
-Day 3:  atvz   sjk   mat   psi   geo   nej   zgo   
-
-Day 4:  anj   free   mat   free   free   free   free   
 
 
 
 Class: 2c
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  anj     anj     atvz    psi     atvz  
+  mat     mat     mat     mat     mat   
+  bio     atvz    nej     fiz           
+  sjk     sjk     sjk     sjk           
+  geo     nej     psi     kem           
+  kem     bio     geo     nej           
+  fiz     zgo     anj     zgo           
 
-Day 0:  anj   mat   bio   sjk   geo   kem   fiz   
-
-Day 1:  anj   mat   atvz   sjk   nej   bio   zgo   
-
-Day 2:  atvz   mat   nej   sjk   psi   geo   anj   
-
-Day 3:  psi   mat   fiz   sjk   kem   nej   zgo   
-
-Day 4:  atvz   mat   free   free   free   free   free   
 
 
 
 Class: 2d
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  mat     fiz     geo     bio     anj   
+  atvz    mat     mat     mat     mat   
+  nej     atvz    anj     nej     psi   
+  fiz     zgo     kem     fiz           
+  sjk     sjk     sjk     sjk           
+  anj     nej     atvz    geo           
+  psi     bio     zgo     kem           
 
-Day 0:  mat   atvz   nej   fiz   sjk   anj   psi   
-
-Day 1:  fiz   mat   atvz   zgo   sjk   nej   bio   
-
-Day 2:  geo   mat   anj   kem   sjk   atvz   zgo   
-
-Day 3:  bio   mat   nej   fiz   sjk   geo   kem   
-
-Day 4:  anj   mat   psi   free   free   free   free   
 
 
 
 Class: 3a
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  fiz     zgo     nej     nej     soc   
+  nej     sjk     sjk     sjk           
+  sjk     kem     atvz    atvz          
+  mat     mat     mat     mat           
+  bio     geo     geo     fiz           
+  anj     anj     zgo     anj           
+  atvz    soc     kem     bio           
 
-Day 0:  fiz   nej   sjk   mat   bio   anj   atvz   
-
-Day 1:  zgo   sjk   kem   mat   geo   anj   soc   
-
-Day 2:  nej   sjk   atvz   mat   geo   zgo   kem   
-
-Day 3:  nej   sjk   atvz   mat   fiz   anj   bio   
-
-Day 4:  soc   free   free   free   free   free   free   
 
 
 
 Class: 3b
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  anj     anj     nej     nej     fiz   
+  geo     bio     geo     kem           
+  atvz    nej     soc     bio           
+  mat     mat     mat     mat           
+  sjk     sjk     sjk     sjk           
+  zgo     fiz     zgo     soc           
+  kem     atvz    atvz    anj           
 
-Day 0:  anj   geo   atvz   mat   sjk   zgo   kem   
-
-Day 1:  anj   bio   nej   mat   sjk   fiz   atvz   
-
-Day 2:  nej   geo   soc   mat   sjk   zgo   atvz   
-
-Day 3:  nej   kem   bio   mat   sjk   soc   anj   
-
-Day 4:  fiz   free   free   free   free   free   free   
 
 
 
 Class: 3c
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  nej     atvz    atvz    zgo           
+  zgo     nej     soc     atvz          
+  sjk     sjk     sjk     sjk           
+  mat     mat     mat     mat           
+  anj     fiz     fiz     kem           
+  geo     anj     bio     anj           
+  kem     geo     nej     soc           
 
-Day 0:  nej   zgo   sjk   mat   anj   geo   kem   
-
-Day 1:  atvz   nej   sjk   mat   fiz   anj   geo   
-
-Day 2:  atvz   soc   sjk   mat   fiz   bio   nej   
-
-Day 3:  zgo   atvz   sjk   mat   kem   anj   soc   
-
-Day 4:  free   free   free   free   free   free   free   
 
 
 
 Class: 3d
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  nej     nej     fiz     atvz    bio   
+  atvz    geo     atvz    fiz           
+  anj     kem     kem     soc           
+  mat     mat     mat     mat           
+  sjk     sjk     sjk     sjk           
+  soc     anj     anj     zgo           
+  zgo             nej     geo           
 
-Day 0:  nej   atvz   anj   mat   sjk   soc   zgo   
-
-Day 1:  nej   geo   kem   mat   sjk   anj   free   
-
-Day 2:  fiz   atvz   kem   mat   sjk   anj   nej   
-
-Day 3:  atvz   fiz   soc   mat   sjk   zgo   geo   
-
-Day 4:  bio   free   free   free   free   free   free   
 
 
 
 Class: 4a
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  sjk     sjk     sjk     sjk     sjk   
+  anj     anj     anj     anj           
+  mat     mat     mat     mat     mat   
+  zgo     nej     zgo                   
+          atvz    nej     atvz          
+  atvz    fil                           
+  fil                                   
 
-Day 0:  sjk   anj   mat   zgo   free   atvz   fil   
-
-Day 1:  sjk   anj   mat   nej   atvz   fil   free   
-
-Day 2:  sjk   anj   mat   zgo   nej   free   free   
-
-Day 3:  sjk   anj   mat   free   atvz   free   free   
-
-Day 4:  sjk   free   mat   free   free   free   free   
 
 
 
 Class: 4b
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  sjk     sjk     sjk     sjk     sjk   
+  mat     anj     anj     anj           
+  atvz    mat     mat     mat     mat   
+  anj     fil     nej                   
+  fil     atvz    atvz                  
+  nej                                   
+  zgo     zgo                           
 
-Day 0:  sjk   mat   atvz   anj   fil   nej   zgo   
-
-Day 1:  sjk   anj   mat   fil   atvz   free   zgo   
-
-Day 2:  sjk   anj   mat   nej   atvz   free   free   
-
-Day 3:  sjk   anj   mat   free   free   free   free   
-
-Day 4:  sjk   free   mat   free   free   free   free   
 
 
 
 Class: 4c
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  sjk     sjk     sjk     sjk     sjk   
+  mat     zgo     fil     atvz          
+  anj     mat     mat     mat     mat   
+  atvz    anj     anj     anj           
+  nej     fil                           
+  zgo     atvz                          
+          nej                           
 
-Day 0:  sjk   mat   anj   atvz   nej   zgo   free   
-
-Day 1:  sjk   zgo   mat   anj   fil   atvz   nej   
-
-Day 2:  sjk   fil   mat   anj   free   free   free   
-
-Day 3:  sjk   atvz   mat   anj   free   free   free   
-
-Day 4:  sjk   free   mat   free   free   free   free   
 
 
 
 Class: 4d
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+  mat     mat     mat     mat     mat   
+  sjk     sjk     sjk     sjk     sjk   
+  anj     anj     anj     anj           
+  atvz    nej                           
+  zgo             zgo                   
+  fil     atvz    nej                   
+          fil     atvz                  
 
-Day 0:  mat   sjk   anj   atvz   zgo   fil   free   
-
-Day 1:  mat   sjk   anj   nej   free   atvz   fil   
-
-Day 2:  mat   sjk   anj   free   zgo   nej   atvz   
-
-Day 3:  mat   sjk   anj   free   free   free   free   
-
-Day 4:  mat   sjk   free   free   free   free   free   
 
 
 
@@ -246,403 +246,403 @@ Day 4:  mat   sjk   free   free   free   free   free
 
 Teacher: anj1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 3b/anj  3b/anj          2a/anj         
+ 4a/anj  4a/anj  4a/anj  4a/anj         
+ 4c/anj  1a/anj  1a/anj                 
+ 1a/anj  4c/anj  4c/anj  4c/anj         
+ 2a/anj  2a/anj                         
+ 3a/anj  3a/anj          3a/anj         
+                         3b/anj         
 
-Day 0:  3b/anj   4a/anj   4c/anj   1a/anj   2a/anj   3a/anj   free   
-
-Day 1:  3b/anj   4a/anj   1a/anj   4c/anj   2a/anj   3a/anj   free   
-
-Day 2:  free   4a/anj   1a/anj   4c/anj   free   free   free   
-
-Day 3:  2a/anj   4a/anj   free   4c/anj   free   3a/anj   3b/anj   
-
-Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: anj2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 2c/anj  2c/anj                  2b/anj 
+ 1b/anj  4b/anj  4b/anj  4b/anj         
+ 4d/anj  4d/anj  4d/anj  4d/anj         
+ 4b/anj  2b/anj                         
+ 3c/anj  1b/anj          1b/anj         
+ 2b/anj  3c/anj          3c/anj         
+                 2c/anj                 
 
-Day 0:  2c/anj   1b/anj   4d/anj   4b/anj   3c/anj   2b/anj   free   
-
-Day 1:  2c/anj   4b/anj   4d/anj   2b/anj   1b/anj   3c/anj   free   
-
-Day 2:  free   4b/anj   4d/anj   free   free   free   2c/anj   
-
-Day 3:  free   4b/anj   4d/anj   free   1b/anj   3c/anj   free   
-
-Day 4:  2b/anj   free   free   free   free   free   free   
 
 
 
 Teacher: anj3
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                                 2d/anj 
+         1d/anj  1d/anj                 
+ 3d/anj          2d/anj          1d/anj 
+                 1c/anj                 
+                                        
+ 2d/anj  3d/anj  3d/anj                 
+ 1c/anj                  1c/anj         
 
-Day 0:  free   free   3d/anj   free   free   2d/anj   1c/anj   
-
-Day 1:  free   1d/anj   free   free   free   3d/anj   free   
-
-Day 2:  free   1d/anj   2d/anj   1c/anj   free   3d/anj   free   
-
-Day 3:  free   free   free   free   free   free   1c/anj   
-
-Day 4:  2d/anj   free   1d/anj   free   free   free   free   
 
 
 
 Teacher: atvz1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+2b/atvz 3c/atvz 3c/atvz 2b/atvz         
+2d/atvz                 3c/atvz         
+4b/atvz 2d/atvz 3a/atvz 3a/atvz         
+4d/atvz 1a/atvz 2b/atvz 1c/atvz         
+1a/atvz 4b/atvz 4b/atvz 1a/atvz         
+1c/atvz 4d/atvz 2d/atvz                 
+3a/atvz 1c/atvz 4d/atvz                 
 
-Day 0:  2b/atvz   2d/atvz   4b/atvz   4d/atvz   1a/atvz   1c/atvz   3a/atvz   
-
-Day 1:  3c/atvz   free   2d/atvz   1a/atvz   4b/atvz   4d/atvz   1c/atvz   
-
-Day 2:  3c/atvz   free   3a/atvz   2b/atvz   4b/atvz   2d/atvz   4d/atvz   
-
-Day 3:  2b/atvz   3c/atvz   3a/atvz   1c/atvz   1a/atvz   free   free   
-
-Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: atvz2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+        2a/atvz 2c/atvz 3d/atvz 2c/atvz 
+3d/atvz         3d/atvz 4c/atvz         
+3b/atvz 2c/atvz                 1b/atvz 
+4c/atvz         2a/atvz 2a/atvz         
+1b/atvz 4a/atvz 1d/atvz 4a/atvz         
+4a/atvz 4c/atvz 1b/atvz 1d/atvz         
+1d/atvz 3b/atvz 3b/atvz                 
 
-Day 0:  free   3d/atvz   3b/atvz   4c/atvz   1b/atvz   4a/atvz   1d/atvz   
-
-Day 1:  2a/atvz   free   2c/atvz   free   4a/atvz   4c/atvz   3b/atvz   
-
-Day 2:  2c/atvz   3d/atvz   free   2a/atvz   1d/atvz   1b/atvz   3b/atvz   
-
-Day 3:  3d/atvz   4c/atvz   free   2a/atvz   4a/atvz   1d/atvz   free   
-
-Day 4:  2c/atvz   free   1b/atvz   free   free   free   free   
 
 
 
 Teacher: bio1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 2a/bio          2a/bio  2d/bio  3d/bio 
+ 1d/bio  3b/bio          1d/bio         
+ 2c/bio                  3b/bio         
+ 1c/bio                                 
+ 3a/bio  1a/bio  2b/bio  1c/bio         
+ 1b/bio  2c/bio  3c/bio  1a/bio         
+ 2b/bio  2d/bio  1b/bio  3a/bio         
 
-Day 0:  2a/bio   1d/bio   2c/bio   1c/bio   3a/bio   1b/bio   2b/bio   
-
-Day 1:  free   3b/bio   free   free   1a/bio   2c/bio   2d/bio   
-
-Day 2:  2a/bio   free   free   free   2b/bio   3c/bio   1b/bio   
-
-Day 3:  2d/bio   1d/bio   3b/bio   free   1c/bio   1a/bio   3a/bio   
-
-Day 4:  3d/bio   free   free   free   free   free   free   
 
 
 
 Teacher: fil1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                                        
+                 4c/fil                 
+                                        
+         4b/fil                         
+ 4b/fil  4c/fil                         
+ 4d/fil  4a/fil                         
+ 4a/fil  4d/fil                         
 
-Day 0:  free   free   free   free   4b/fil   4d/fil   4a/fil   
-
-Day 1:  free   free   free   4b/fil   4c/fil   4a/fil   4d/fil   
-
-Day 2:  free   4c/fil   free   free   free   free   free   
-
-Day 3:  free   free   free   free   free   free   free   
-
-Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: fiz1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 3a/fiz  2d/fiz  1c/fiz                 
+                                        
+                                 1c/fiz 
+ 2d/fiz                  2d/fiz         
+ 2b/fiz  3c/fiz  3c/fiz  3a/fiz         
+                                        
+         1a/fiz  2b/fiz  1a/fiz         
 
-Day 0:  3a/fiz   free   free   2d/fiz   2b/fiz   free   free   
-
-Day 1:  2d/fiz   free   free   free   3c/fiz   free   1a/fiz   
-
-Day 2:  1c/fiz   free   free   free   3c/fiz   free   2b/fiz   
-
-Day 3:  free   free   free   2d/fiz   3a/fiz   free   1a/fiz   
-
-Day 4:  free   free   1c/fiz   free   free   free   free   
 
 
 
 Teacher: fiz2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                 3d/fiz          3b/fiz 
+                         3d/fiz         
+         1b/fiz          2c/fiz         
+                                        
+         1d/fiz          1d/fiz         
+ 2a/fiz  3b/fiz          2a/fiz         
+ 2c/fiz  2a/fiz          1b/fiz         
 
-Day 0:  free   free   free   free   free   2a/fiz   2c/fiz   
-
-Day 1:  free   free   1b/fiz   free   1d/fiz   3b/fiz   2a/fiz   
-
-Day 2:  3d/fiz   free   free   free   free   free   free   
-
-Day 3:  free   3d/fiz   2c/fiz   free   1d/fiz   2a/fiz   1b/fiz   
-
-Day 4:  3b/fiz   free   free   free   free   free   free   
 
 
 
 Teacher: geo1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 1c/geo          2d/geo                 
+ 3b/geo  3d/geo  3b/geo  1b/geo         
+ 1d/geo                  1d/geo         
+ 2a/geo  2a/geo  1a/geo                 
+ 2c/geo  3a/geo  3a/geo  2b/geo  1a/geo 
+ 3c/geo  2b/geo  2c/geo  2d/geo         
+ 1b/geo  3c/geo  1c/geo  3d/geo         
 
-Day 0:  1c/geo   3b/geo   1d/geo   2a/geo   2c/geo   3c/geo   1b/geo   
-
-Day 1:  free   3d/geo   free   2a/geo   3a/geo   2b/geo   3c/geo   
-
-Day 2:  2d/geo   3b/geo   free   1a/geo   3a/geo   2c/geo   1c/geo   
-
-Day 3:  free   1b/geo   1d/geo   free   2b/geo   2d/geo   3d/geo   
-
-Day 4:  free   free   free   free   1a/geo   free   free   
 
 
 
 Teacher: kem1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+         2b/kem          1c/kem         
+                                        
+         3a/kem                         
+         1c/kem  2d/kem                 
+                 1a/kem  3c/kem         
+                 2b/kem          1a/kem 
+ 3c/kem          3a/kem  2d/kem         
 
-Day 0:  free   free   free   free   free   free   3c/kem   
-
-Day 1:  2b/kem   free   3a/kem   1c/kem   free   free   free   
-
-Day 2:  free   free   free   2d/kem   1a/kem   2b/kem   3a/kem   
-
-Day 3:  1c/kem   free   free   free   3c/kem   free   2d/kem   
-
-Day 4:  free   free   free   free   free   1a/kem   free   
 
 
 
 Teacher: kem2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                                        
+                         3b/kem         
+         3d/kem  3d/kem                 
+                                 1b/kem 
+                 2a/kem  2c/kem         
+ 2c/kem  1b/kem  1d/kem                 
+ 3b/kem  1d/kem          2a/kem         
 
-Day 0:  free   free   free   free   free   2c/kem   3b/kem   
-
-Day 1:  free   free   3d/kem   free   free   1b/kem   1d/kem   
-
-Day 2:  free   free   3d/kem   free   2a/kem   1d/kem   free   
-
-Day 3:  free   3b/kem   free   free   2c/kem   free   2a/kem   
-
-Day 4:  free   free   free   1b/kem   free   free   free   
 
 
 
 Teacher: mat1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 2d/mat  1a/mat  1a/mat  1a/mat  1a/mat 
+ 4b/mat  2d/mat  2d/mat  2d/mat  2d/mat 
+ 1a/mat  4b/mat  4b/mat  4b/mat  4b/mat 
+ 3c/mat  3c/mat  3c/mat  3c/mat         
+                                        
+                                        
+                                        
 
-Day 0:  2d/mat   4b/mat   1a/mat   3c/mat   free   free   free   
-
-Day 1:  1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
-
-Day 2:  1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
-
-Day 3:  1a/mat   2d/mat   4b/mat   3c/mat   free   free   free   
-
-Day 4:  1a/mat   2d/mat   4b/mat   free   free   free   free   
 
 
 
 Teacher: mat2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 1b/mat  1b/mat  1b/mat  1b/mat  1b/mat 
+ 4c/mat  2a/mat  2a/mat  2a/mat  2a/mat 
+ 2a/mat  4c/mat  4c/mat  4c/mat  4c/mat 
+ 3d/mat  3d/mat  3d/mat  3d/mat         
+                                        
+                                        
+                                        
 
-Day 0:  1b/mat   4c/mat   2a/mat   3d/mat   free   free   free   
-
-Day 1:  1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
-
-Day 2:  1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
-
-Day 3:  1b/mat   2a/mat   4c/mat   3d/mat   free   free   free   
-
-Day 4:  1b/mat   2a/mat   4c/mat   free   free   free   free   
 
 
 
 Teacher: mat3
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 4d/mat  4d/mat  4d/mat  4d/mat  4d/mat 
+ 1c/mat  1c/mat  1c/mat  1c/mat  1c/mat 
+ 2b/mat  2b/mat  2b/mat  2b/mat  2b/mat 
+ 3a/mat  3a/mat  3a/mat  3a/mat         
+                                        
+                                        
+                                        
 
-Day 0:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
-
-Day 1:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
-
-Day 2:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
-
-Day 3:  4d/mat   1c/mat   2b/mat   3a/mat   free   free   free   
-
-Day 4:  4d/mat   1c/mat   2b/mat   free   free   free   free   
 
 
 
 Teacher: mat4
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 1d/mat  1d/mat  1d/mat  1d/mat  1d/mat 
+ 2c/mat  2c/mat  2c/mat  2c/mat  2c/mat 
+ 4a/mat  4a/mat  4a/mat  4a/mat  4a/mat 
+ 3b/mat  3b/mat  3b/mat  3b/mat         
+                                        
+                                        
+                                        
 
-Day 0:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
-
-Day 1:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
-
-Day 2:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
-
-Day 3:  1d/mat   2c/mat   4a/mat   3b/mat   free   free   free   
-
-Day 4:  1d/mat   2c/mat   4a/mat   free   free   free   free   
 
 
 
 Teacher: nej1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 3c/nej  1c/nej  3a/nej  3a/nej         
+ 3a/nej  3c/nej          1a/nej  1a/nej 
+ 2d/nej                  2d/nej         
+ 2b/nej  4d/nej  4b/nej          1c/nej 
+ 1c/nej                                 
+ 4b/nej  2d/nej  4d/nej  2b/nej         
+ 1a/nej  2b/nej  3c/nej                 
 
-Day 0:  3c/nej   3a/nej   2d/nej   2b/nej   1c/nej   4b/nej   1a/nej   
-
-Day 1:  1c/nej   3c/nej   free   4d/nej   free   2d/nej   2b/nej   
-
-Day 2:  3a/nej   free   free   4b/nej   free   4d/nej   3c/nej   
-
-Day 3:  3a/nej   1a/nej   2d/nej   free   free   2b/nej   free   
-
-Day 4:  free   1a/nej   free   1c/nej   free   free   free   
 
 
 
 Teacher: nej2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 3d/nej  3d/nej  3b/nej  3b/nej  2a/nej 
+         1b/nej  1b/nej          1b/nej 
+         3b/nej  2c/nej                 
+         4a/nej                         
+ 4c/nej  2c/nej  4a/nej                 
+ 1d/nej  1d/nej  2a/nej  2c/nej         
+ 2a/nej  4c/nej  3d/nej  1d/nej         
 
-Day 0:  3d/nej   free   free   free   4c/nej   1d/nej   2a/nej   
-
-Day 1:  3d/nej   1b/nej   3b/nej   4a/nej   2c/nej   1d/nej   4c/nej   
-
-Day 2:  3b/nej   1b/nej   2c/nej   free   4a/nej   2a/nej   3d/nej   
-
-Day 3:  3b/nej   free   free   free   free   2c/nej   1d/nej   
-
-Day 4:  2a/nej   1b/nej   free   free   free   free   free   
 
 
 
 Teacher: psi1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                 2b/psi  2c/psi         
+                                        
+                                 2d/psi 
+                         2b/psi         
+                 2c/psi  2a/psi         
+         2a/psi                         
+ 2d/psi                                 
 
-Day 0:  free   free   free   free   free   free   2d/psi   
-
-Day 1:  free   free   free   free   free   2a/psi   free   
-
-Day 2:  2b/psi   free   free   free   2c/psi   free   free   
-
-Day 3:  2c/psi   free   free   2b/psi   2a/psi   free   free   
-
-Day 4:  free   free   2d/psi   free   free   free   free   
 
 
 
 Teacher: rai1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                                 1c/rai 
+                                 1d/rai 
+                 1d/rai  1a/rai  1a/rai 
+                                        
+                 1c/rai                 
+                         1b/rai         
+         1b/rai                         
 
-Day 0:  free   free   free   free   free   free   free   
-
-Day 1:  free   free   free   free   free   free   1b/rai   
-
-Day 2:  free   free   1d/rai   free   1c/rai   free   free   
-
-Day 3:  free   free   1a/rai   free   free   1b/rai   free   
-
-Day 4:  1c/rai   1d/rai   1a/rai   free   free   free   free   
 
 
 
 Teacher: sjk1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 4a/sjk  4a/sjk  4a/sjk  4a/sjk  4a/sjk 
+ 2a/sjk  3a/sjk  3a/sjk  3a/sjk         
+ 3a/sjk  2a/sjk  2a/sjk  2a/sjk         
+ 1b/sjk  1b/sjk  1b/sjk  1b/sjk         
+ 3d/sjk  3d/sjk  3d/sjk  3d/sjk         
+ 1a/sjk  1a/sjk  1a/sjk                 
+                 1a/sjk                 
 
-Day 0:  4a/sjk   2a/sjk   3a/sjk   1b/sjk   3d/sjk   1a/sjk   free   
-
-Day 1:  4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   1a/sjk   free   
-
-Day 2:  4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   1a/sjk   1a/sjk   
-
-Day 3:  4a/sjk   3a/sjk   2a/sjk   1b/sjk   3d/sjk   free   free   
-
-Day 4:  4a/sjk   free   free   free   free   free   free   
 
 
 
 Teacher: sjk2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 4b/sjk  4b/sjk  4b/sjk  4b/sjk  4b/sjk 
+ 2b/sjk  2b/sjk  2b/sjk  2b/sjk         
+ 1c/sjk  1c/sjk  1c/sjk  1c/sjk         
+ 2c/sjk  2c/sjk  2c/sjk  2c/sjk         
+ 3b/sjk  3b/sjk  3b/sjk  3b/sjk         
+                                        
+                                        
 
-Day 0:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
-
-Day 1:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
-
-Day 2:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
-
-Day 3:  4b/sjk   2b/sjk   1c/sjk   2c/sjk   3b/sjk   free   free   
-
-Day 4:  4b/sjk   free   free   free   free   free   free   
 
 
 
 Teacher: sjk3
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+ 4c/sjk  4c/sjk  4c/sjk  4c/sjk  4c/sjk 
+ 4d/sjk  4d/sjk  4d/sjk  4d/sjk  4d/sjk 
+ 3c/sjk  3c/sjk  3c/sjk  3c/sjk         
+ 1d/sjk  1d/sjk  1d/sjk  1d/sjk         
+ 2d/sjk  2d/sjk  2d/sjk  2d/sjk         
+                                        
+                                        
 
-Day 0:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
-
-Day 1:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
-
-Day 2:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
-
-Day 3:  4c/sjk   4d/sjk   3c/sjk   1d/sjk   2d/sjk   free   free   
-
-Day 4:  4c/sjk   4d/sjk   free   free   free   free   free   
 
 
 
 Teacher: soc1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                                 3a/soc 
+                 3c/soc                 
+                 3b/soc  3d/soc         
+                                        
+                                        
+ 3d/soc                  3b/soc         
+         3a/soc          3c/soc         
 
-Day 0:  free   free   free   free   free   3d/soc   free   
-
-Day 1:  free   free   free   free   free   free   3a/soc   
-
-Day 2:  free   3c/soc   3b/soc   free   free   free   free   
-
-Day 3:  free   free   3d/soc   free   free   3b/soc   3c/soc   
-
-Day 4:  3a/soc   free   free   free   free   free   free   
 
 
 
 Teacher: ume1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                                        
+         1a/ume  1a/ume                 
+ 1b/ume                                 
+                                        
+ 1d/ume  1c/ume  1b/ume                 
+                 1c/ume                 
+                 1d/ume                 
 
-Day 0:  free   free   1b/ume   free   1d/ume   free   free   
-
-Day 1:  free   1a/ume   free   free   1c/ume   free   free   
-
-Day 2:  free   1a/ume   free   free   1b/ume   1c/ume   1d/ume   
-
-Day 3:  free   free   free   free   free   free   free   
-
-Day 4:  free   free   free   free   free   free   free   
 
 
 
 Teacher: zgo1
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+         3a/zgo          3c/zgo         
+ 3c/zgo  4c/zgo                         
+                                        
+ 4a/zgo  2d/zgo  4a/zgo  1a/zgo  1a/zgo 
+ 4d/zgo  2b/zgo  4d/zgo                 
+ 4c/zgo  1c/zgo  3a/zgo  1c/zgo         
+ 4b/zgo  4b/zgo  2d/zgo  2b/zgo         
 
-Day 0:  free   3c/zgo   free   4a/zgo   4d/zgo   4c/zgo   4b/zgo   
-
-Day 1:  3a/zgo   4c/zgo   free   2d/zgo   2b/zgo   1c/zgo   4b/zgo   
-
-Day 2:  free   free   free   4a/zgo   4d/zgo   3a/zgo   2d/zgo   
-
-Day 3:  3c/zgo   free   free   1a/zgo   free   1c/zgo   2b/zgo   
-
-Day 4:  free   free   free   1a/zgo   free   free   free   
 
 
 
 Teacher: zgo2
 
+  Mon     Tue     Wed     Thu     Fri   
+========================================
+                                        
+                                        
+         1d/zgo  1b/zgo  1b/zgo  2a/zgo 
+                                 1d/zgo 
+                                        
+ 3b/zgo          3b/zgo  3d/zgo         
+ 3d/zgo  2c/zgo  2a/zgo  2c/zgo         
 
-Day 0:  free   free   free   free   free   3b/zgo   3d/zgo   
-
-Day 1:  free   free   1d/zgo   free   free   free   2c/zgo   
-
-Day 2:  free   free   1b/zgo   free   free   3b/zgo   2a/zgo   
-
-Day 3:  free   free   1b/zgo   free   free   3d/zgo   2c/zgo   
-
-Day 4:  free   free   2a/zgo   1d/zgo   free   free   free   
