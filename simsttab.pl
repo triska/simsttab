@@ -29,8 +29,14 @@
 :- use_module(library(sgml)).
 :- use_module(library(xpath)).
 
-:- dynamic req/4, coupling/4, teacher_freeday/2, slots_per_day/1,
-	   num_slots/1, class_freeslot/2, room_alloc/4.
+:- dynamic
+        class_subject_teacher_times/4,
+        coupling/4,
+        teacher_freeday/2,
+        slots_per_day/1,
+        num_slots/1,
+        class_freeslot/2,
+        room_alloc/4.
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -63,15 +69,17 @@
 
 
 requirements(Rs) :-
-        Goal = req(_Class,_Subject,_Teacher,_Number),
-        setof(Goal, Goal, Rs0),
+        Goal = class_subject_teacher_times(Class,Subject,Teacher,Number),
+        setof(req(Class,Subject,Teacher,Number), Goal, Rs0),
         maplist(req_with_slots, Rs0, Rs).
 
 req_with_slots(R, R-Slots) :- R = req(_,_,_,N), length(Slots, N).
 
-classes(Classes) :- setof(C, S^N^T^req(C,S,T,N), Classes).
+classes(Classes) :-
+        setof(C, S^N^T^class_subject_teacher_times(C,S,T,N), Classes).
 
-teachers(Teachers) :- setof(T, C^S^N^req(C,S,T,N), Teachers).
+teachers(Teachers) :-
+        setof(T, C^S^N^class_subject_teacher_times(C,S,T,N), Teachers).
 
 rooms(Rooms) :-
         findall(Room, room_alloc(Room,_C,_S,_Slot), Rooms0),
@@ -346,7 +354,7 @@ elements_([E|Es], Goal) -->
 
 process_req(ClassId, Node) -->
         { attrs_values(Node, [subject,teacher,amount], [Subject,Teacher,Amount]) },
-        [req(ClassId,Subject,Teacher,Amount)].
+        [class_subject_teacher_times(ClassId,Subject,Teacher,Amount)].
 
 process_coupling(ClassId, Node) -->
         { attrs_values(Node, [subject,lesson1,lesson2], [Subject,Slot1,Slot2]) },
