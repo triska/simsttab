@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <requirements>
-	<global numslots="35" slotsperday="7"/>
+	<global slotsperweek="35" slotsperday="7"/>
 	<class id="1a">
 		<req subject="sjk" teacher="sjk1" amount="4"/>
 		<req subject="mat" teacher="mat1" amount="5"/>

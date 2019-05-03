@@ -34,10 +34,13 @@
         coupling/4,
         teacher_freeday/2,
         slots_per_day/1,
-        num_slots/1,
+        slots_per_week/1,
         class_freeslot/2,
         room_alloc/4.
 
+:- discontiguous
+        class_subject_teacher_times/4,
+        class_freeslot/2.
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 			 Posting constraints
@@ -88,9 +91,9 @@ rooms(Rooms) :-
 requirements_variables(Rs, Vars) :-
         requirements(Rs),
         pairs_slots(Rs, Vars),
-        num_slots(NumSlots0),
-        NumSlots #= NumSlots0 - 1,
-        Vars ins 0..NumSlots,
+        slots_per_week(SPW),
+        Max #= SPW - 1,
+        Vars ins 0..Max,
         maplist(constrain_subject, Rs),
         classes(Classes),
         teachers(Teachers),
@@ -204,9 +207,9 @@ pairs_slots(Ps, Vs) :-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 days_variables(Days, Vs) :-
-        num_slots(NumSlots),
+        slots_per_week(SPW),
         slots_per_day(SPD),
-        NumDays #= NumSlots // SPD,
+        NumDays #= SPW // SPD,
         length(Days, NumDays),
         length(Day, SPD),
         maplist(same_length(Day), Days),
@@ -230,8 +233,8 @@ class_days(Rs, Class, Days) :-
         foldl(v(Sub), Vs, 0, _).
 
 v(Rs, V, N0, N) :-
-        (   member(req(_,Class,_,_)-Times, Rs),
-            member(N0, Times) -> V = verbatim(Class)
+        (   member(req(_,Subject,_,_)-Times, Rs),
+            member(N0, Times) -> V = verbatim(Subject)
         ;   V = free
         ),
         N #= N0 + 1.
@@ -322,7 +325,7 @@ numeric_attribute(amount).
 numeric_attribute(lesson1).
 numeric_attribute(lesson2).
 numeric_attribute(slot).
-numeric_attribute(numslots).
+numeric_attribute(slotsperweek).
 numeric_attribute(slotsperday).
 numeric_attribute(lesson).
 numeric_attribute(day).
@@ -373,8 +376,8 @@ process_class(Node) -->
 
 globals(Content) -->
         { xpath_chk(Content, //global, Global),
-          attrs_values(Global, [numslots,slotsperday], [NumSlots,SlotsPerDay]) },
-        [slots_per_day(SlotsPerDay),num_slots(NumSlots)].
+          attrs_values(Global, [slotsperweek,slotsperday], [SPW,SPD]) },
+        [slots_per_day(SPD),slots_per_week(SPW)].
 
 
 process_room(Node) -->
