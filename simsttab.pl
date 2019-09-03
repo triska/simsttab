@@ -152,12 +152,9 @@ constrain_teacher(Rs, Teacher) :-
         include(teacher_req(Teacher), Rs, Sub),
         pairs_slots(Sub, Vs),
         all_different(Vs),
-        (   teacher_freeday(Teacher,F) ->
-            maplist(slot_quotient, Vs, Qs),
-            all_diff_from(Qs, F)
-        ;   true
-        ).
-
+        findall(F, teacher_freeday(Teacher, F), Fs),
+        maplist(slot_quotient, Vs, Qs),
+        maplist(all_diff_from(Qs), Fs).
 
 sameroom_var(Reqs, r(Class,Subject,Lesson), Var) :-
         memberchk(req(Class,Subject,_Teacher,_Num)-Slots, Reqs),
