@@ -412,7 +412,7 @@ timetable_(File, Rs, Vs) :-
         phrase(requirements(File), Reqs),
         setup_call_cleanup(maplist(assertz, Reqs),
                            (   requirements_variables(Rs, Vs)
-                           ;   true % retain the facts until cleanup
+                           ;   false % retain the facts until cleanup
                            ),
                            maplist(retract, Reqs)).
 
