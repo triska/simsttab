@@ -26,8 +26,6 @@
 
 
 :- use_module(library(clpfd)).
-:- use_module(library(sgml)).
-:- use_module(library(xpath)).
 
 :- dynamic
         class_subject_teacher_times/4,
@@ -281,156 +279,23 @@ print_weekdays_header :-
 with_verbatim(T, verbatim(T)).
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Parse XML file.
+   ?- consult('reqs_example.pl').
+   true.
 
-   This part of the program translates the XML file to a list of
-   Prolog terms that describe the requirements. library(xpath) is used
-   to access nodes of the XML file. A DCG describes the list of Prolog
-   terms. The most important of them are:
+   ?- requirements(Rs).
 
-   *) req(C,S,T,N)
-        Class C is to be taught subject S by teacher T; N times a week
-        (on different days)
-
-   *) coupling(C,S,J,K)
-        In class C, subject S contains a coupling: The J-th lesson of S
-        directly precedes the K-th lesson, on the same day.
-
-   *) teacher_freeday(T, D)
-        Teacher T must not have any lessons scheduled on day D.
-
-   These terms can all be dynamically asserted to make the
-   requirements globally accessible.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Extract option values from tag attributes.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-attrs_values(Node, As, Vs) :-
-        must_be(list(atom), As),
-        maplist(attr_value(Node), As, Vs).
-
-attr_value(Node, Attr, Value) :-
-        (   xpath(Node, /self(@Attr), Value0) -> true
-        ;   throw('attribute expected'-Node-Attr)
-        ),
-        (   numeric_attribute(Attr) -> atom_number(Value0, Value)
-        ;   Value = Value0
-        ).
-
-numeric_attribute(amount).
-numeric_attribute(lesson1).
-numeric_attribute(lesson2).
-numeric_attribute(slot).
-numeric_attribute(slotsperweek).
-numeric_attribute(slotsperday).
-numeric_attribute(lesson).
-numeric_attribute(day).
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   A DCG relates the XML file to a list of Prolog terms.
-
-   Example query:
-
-      ?- phrase(requirements('reqs.xml'), Rs).
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-requirements(File) -->
-        { load_xml_file(File, AST),
-          xpath_chk(AST, //requirements, R) },
-        globals(R),
-        process_nodes(class, R, process_class),
-        process_nodes(room, R, process_room),
-        process_nodes(freeday, R, process_freeday).
-
-process_nodes(What, R, Goal) -->
-        { findall(Element, xpath(R, //What, Element), Elements) },
-        elements_(Elements, Goal).
-
-elements_([], _) --> [].
-elements_([E|Es], Goal) -->
-        call(Goal, E),
-        elements_(Es, Goal).
-
-process_req(ClassId, Node) -->
-        { attrs_values(Node, [subject,teacher,amount], [Subject,Teacher,Amount]) },
-        [class_subject_teacher_times(ClassId,Subject,Teacher,Amount)].
-
-process_coupling(ClassId, Node) -->
-        { attrs_values(Node, [subject,lesson1,lesson2], [Subject,Slot1,Slot2]) },
-        [coupling(ClassId,Subject,Slot1,Slot2)].
-
-process_free(ClassId, Node) -->
-        { attrs_values(Node, [slot], [Slot]) },
-        [class_freeslot(ClassId,Slot)].
-
-
-process_class(Node) -->
-        { attrs_values(Node, [id], [Id]) },
-        process_nodes(req, Node, process_req(Id)),
-        process_nodes(coupling, Node, process_coupling(Id)),
-        process_nodes(free, Node, process_free(Id)).
-
-globals(Content) -->
-        { xpath_chk(Content, //global, Global),
-          attrs_values(Global, [slotsperweek,slotsperday], [SPW,SPD]) },
-        [slots_per_day(SPD),slots_per_week(SPW)].
-
-
-process_room(Node) -->
-        { attrs_values(Node, [id], [Id]) },
-        process_nodes(allocate, Node, process_allocation(Id)).
-
-process_allocation(RoomId, Node) -->
-        { attrs_values(Node, [class,subject,lesson], [Class,Subject,Lesson]) },
-        [room_alloc(RoomId,Class,Subject,Lesson)].
-
-process_freeday(Node) -->
-        { attrs_values(Node, [teacher,day], [Teacher,Day]) },
-        [teacher_freeday(Teacher,Day)].
-
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Execution entry point.
-
-   The parsed requirements are asserted to make them easily accessible
-   as Prolog facts. On cleanup, all asserted facts are retracted.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   Core relation: timetable_(+File, -Rs, -Vs)
-   The first argument is the XML file containing the requirements. Rs are
-   the parsed requirements, and Vs is a list of finite domain variables
-   that need to be labeled. An artificial choice point is introduced
-   to retain the asserted facts until backtracking or commit.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-timetable_(File, Rs, Vs) :-
-        phrase(requirements(File), Reqs),
-        setup_call_cleanup(maplist(assertz, Reqs),
-                           (   requirements_variables(Rs, Vs)
-                           ;   false % retain the facts until cleanup
-                           ),
-                           maplist(retract, Reqs)).
-
-timetable(File) :-
-        timetable_(File, Rs, Vs),
-        labeling([ff], Vs),
-        print_classes(Rs),
-        nl, nl,
-        print_teachers(Rs),
-        nl.
-
-
-run :- timetable('reqs.xml').
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   ?- time(run).
-
-   ?- timetable_('reqs.xml', Rs, Vs).
-
-   ?- timetable_('reqs.xml', Rs, Vs), labeling([ff], Vs).
-   Rs = [req('1a', anj, anj1, 3)-[3, 9, 16], req('1a', atvz, atvz1, 3)-[4, 10, 25], req('1a', bio, bio1, 2)-[11, 26], req('1a', fiz, fiz1, 2)-[13, 27], req('1a', geo, geo1, 2)-[17, 32], req('1a', kem, kem1, 2)-[18, 33], req('1a', mat, mat1, 5)-[2|...], req(..., ..., ..., ...)-[...|...], ... - ...|...],
-   Vs = [3, 9, 16, 4, 10, 25, 11, 26, 13|...] .
+   ?- requirements_variables(Rs, Vs),
+      labeling([ff], Vs),
+      print_classes(Rs).
+   %@
+   %@ Class: 1a
+   %@
+   %@   Mon     Tue     Wed     Thu     Fri
+   %@ ========================================
+   %@   mat     mat     mat     mat     mat
+   %@   eng     eng     eng
+   %@    h       h
+   %@
+   %@
+   %@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

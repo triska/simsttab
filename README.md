@@ -8,7 +8,11 @@ for more information.
 
 Example invocation:
 
-    swipl -g "timetable('reqs.xml'),halt" simsttab.pl
+
+    swipl -g 'requirements_variables(Rs, Vs),
+              labeling([ff], Vs),
+              print_classes(Rs),
+              print_teachers(Rs)' simsttab.pl reqs.pl
 
 This constructs a [timetable](timetable.txt) that satisifies the
-requirements stated in [reqs.xml](reqs.xml).
+requirements stated in [reqs.pl](reqs.pl).
