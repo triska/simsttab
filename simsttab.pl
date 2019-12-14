@@ -112,12 +112,13 @@ list_without_nths(Es0, Ws, Es) :-
 
 without_([], _, Es) --> list(Es).
 without_([W|Ws], Pos0, [E|Es]) -->
-        { Pos #= Pos0 + 1 },
-        (   { W #= Pos0 } -> without_(Ws, Pos, Es)
-        ;   [E],
-            without_([W|Ws], Pos, Es)
-        ).
+        { Pos #= Pos0 + 1,
+          zcompare(R, W, Pos0) },
+        without_at_pos0(R, E, [W|Ws], Ws1),
+        without_(Ws1, Pos, Es).
 
+without_at_pos0(=, _, [_|Ws], Ws) --> [].
+without_at_pos0(>, E, Ws0, Ws0) --> [E].
 
 %:- list_without_nths([a,b,c,d], [3], [a,b,c]).
 %:- list_without_nths([a,b,c,d], [1,2], [a,d]).
