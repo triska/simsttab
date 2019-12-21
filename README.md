@@ -6,13 +6,13 @@ See
 
 for more information.
 
-Example invocation:
+Example query:
 
 
-    swipl -g 'requirements_variables(Rs, Vs),
-              labeling([ff], Vs),
-              print_classes(Rs),
-              print_teachers(Rs)' simsttab.pl reqs.pl
+    ?- consult('reqs.pl'),
+       requirements_variables(Rs, Vs),
+       labeling([ff], Vs),
+       print_classes(Rs).
 
 This constructs a [timetable](timetable.txt) that satisifies the
 requirements stated in [reqs.pl](reqs.pl).

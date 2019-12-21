@@ -25,20 +25,23 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-:- use_module(library(clpfd)).
+:- use_module(library(clpz)).
+:- use_module(library(dcgs)).
+:- use_module(library(reif)).
+:- use_module(library(pairs)).
+:- use_module(library(lists)).
 
-:- dynamic
-        class_subject_teacher_times/4,
-        coupling/4,
-        teacher_freeday/2,
-        slots_per_day/1,
-        slots_per_week/1,
-        class_freeslot/2,
-        room_alloc/4.
+:- dynamic(class_subject_teacher_times/4).
+:- dynamic(coupling/4).
+:- dynamic(teacher_freeday/2).
+:- dynamic(slots_per_day/1).
+:- dynamic(slots_per_week/1).
+:- dynamic(class_freeslot/2).
+:- dynamic(room_alloc/4).
 
-:- discontiguous
-        class_subject_teacher_times/4,
-        class_freeslot/2.
+:- discontiguous(class_subject_teacher_times/4).
+:- discontiguous(class_freeslot/2).
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 			 Posting constraints
@@ -140,7 +143,7 @@ constrain_subject(req(Class,Subj,_Teacher,_Num)-Slots) :-
 all_diff_from(Vs, F) :- maplist(#\=(F), Vs).
 
 constrain_class(Rs, Class) :-
-        include(class_req(Class), Rs, Sub),
+        tfilter(class_req(Class), Rs, Sub),
         pairs_slots(Sub, Vs),
         all_different(Vs),
         findall(S, class_freeslot(Class,S), Frees),
@@ -148,7 +151,7 @@ constrain_class(Rs, Class) :-
 
 
 constrain_teacher(Rs, Teacher) :-
-        include(teacher_req(Teacher), Rs, Sub),
+        tfilter(teacher_req(Teacher), Rs, Sub),
         pairs_slots(Sub, Vs),
         all_different(Vs),
         findall(F, teacher_freeday(Teacher, F), Fs),
@@ -165,25 +168,14 @@ constrain_room(Reqs, Room) :-
         all_different(Roomvars).
 
 
-strictly_ascending(Ls) :- chain(Ls, #<).
-
-%room(r1,'1a',sjk,[1,2,3,4]).
-%room(r1,'1b',sjk,[1,2,3,4]).
-%room(r1,'1c',sjk,[1,2,3,4]).
-%room(r1,'1d',sjk,[1,2,3,4]).
-
-%coupling('1a',sjk,1,2).
-
-%teacher_freeday(2,2).
-%teacher_freeday(1,4).
-%teacher_freeday(3,0).
+strictly_ascending(Ls) :- chain(#<, Ls).
 
 list([])     --> [].
 list([E|Es]) --> [E], list(Es).
 
-class_req(C, req(C,_S,_T,_N)-_).
+class_req(C0, req(C1,_S,_T,_N)-_, T) :- =(C0, C1, T).
 
-teacher_req(T, req(_C,_S,T,_N)-_).
+teacher_req(T0, req(_C,_S,T1,_N)-_, T) :- =(T0,T1,T).
 
 pairs_slots(Ps, Vs) :-
         pairs_values(Ps, Vs0),
@@ -197,9 +189,10 @@ pairs_slots(Ps, Vs) :-
    yields a list of days with the right dimensions, where each element
    is a free variable.
 
-   We use the atom 'free' to denote a free slot, and the compound term
-   verbatim(E) to denote the verbatim element E. This clean symbolic
-   distinction is used to support subjects that are called 'free'.
+   We use the atom 'free' to denote a free slot, and the compound terms
+   class_subject(C, S) and subject(S) to denote classes/subjects.
+   This clean symbolic distinction is used to support subjects
+   that are called 'free', and to improve generality and efficiency.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 days_variables(Days, Vs) :-
@@ -211,26 +204,26 @@ days_variables(Days, Vs) :-
         maplist(same_length(Day), Days),
         append(Days, Vs).
 
-teacher_days(Rs, Teacher, Days) :-
-        days_variables(Days, Vs),
-        include(teacher_req(Teacher), Rs, Sub),
-        foldl(v_teacher(Sub), Vs, 0, _).
-
-v_teacher(Rs, V, N0, N) :-
-        (   member(req(C,Subj,_,_)-Times, Rs),
-            member(N0, Times) -> V = verbatim(C/Subj)
-        ;   V = free
-        ),
-        N #= N0 + 1.
-
 class_days(Rs, Class, Days) :-
         days_variables(Days, Vs),
-        include(class_req(Class), Rs, Sub),
+        tfilter(class_req(Class), Rs, Sub),
         foldl(v(Sub), Vs, 0, _).
 
 v(Rs, V, N0, N) :-
         (   member(req(_,Subject,_,_)-Times, Rs),
-            member(N0, Times) -> V = verbatim(Subject)
+            member(N0, Times) -> V = subject(Subject)
+        ;   V = free
+        ),
+        N #= N0 + 1.
+
+teacher_days(Rs, Teacher, Days) :-
+        days_variables(Days, Vs),
+        tfilter(teacher_req(Teacher), Rs, Sub),
+        foldl(v_teacher(Sub), Vs, 0, _).
+
+v_teacher(Rs, V, N0, N) :-
+        (   member(req(C,Subj,_,_)-Times, Rs),
+            member(N0, Times) -> V = class_subject(C, Subj)
         ;   V = free
         ),
         N #= N0 + 1.
@@ -254,9 +247,10 @@ align_row(Cs) :-
         maplist(align_, Cs),
         nl.
 
-align_(free) :- align_(verbatim('')).
-align_(verbatim(Element)) :-
-        format("~|~t~w~t~8+", [Element]).
+align_(free)               :- align_(verbatim('')).
+align_(class_subject(C,S)) :- align_(verbatim(C/S)).
+align_(subject(S))         :- align_(verbatim(S)).
+align_(verbatim(Element))  :- format("~|~t~w~t~8+", [Element]).
 
 print_teachers(Rs) :-
         teachers(Ts),
@@ -279,12 +273,8 @@ print_weekdays_header :-
 with_verbatim(T, verbatim(T)).
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-   ?- consult('reqs_example.pl').
-   true.
-
-   ?- requirements(Rs).
-
-   ?- requirements_variables(Rs, Vs),
+   ?- consult('reqs_example.pl'),
+      requirements_variables(Rs, Vs),
       labeling([ff], Vs),
       print_classes(Rs).
    %@
@@ -295,7 +285,5 @@ with_verbatim(T, verbatim(T)).
    %@   mat     mat     mat     mat     mat
    %@   eng     eng     eng
    %@    h       h
-   %@
-   %@
-   %@
+
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
