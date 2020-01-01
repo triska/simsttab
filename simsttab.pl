@@ -1,6 +1,6 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   Simsttab -- Simplistic school time tabler
-  Copyright (C) 2005, 2014, 2016, 2019 Markus Triska triska@metalevel.at
+  Copyright (C) 2005-2020 Markus Triska triska@metalevel.at
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -239,7 +239,7 @@ print_classes(Rs) :-
 print_class(Rs, Class) :-
         class_days(Rs, Class, Days0),
         transpose(Days0, Days),
-        format("\n\n\n\nClass: ~w\n\n", Class),
+        format("\n\n\n\nClass: ~w\n\n", [Class]),
         print_weekdays_header,
         maplist(align_row, Days).
 
