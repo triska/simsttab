@@ -30,6 +30,7 @@
 :- use_module(library(reif)).
 :- use_module(library(pairs)).
 :- use_module(library(lists)).
+:- use_module(library(format)).
 
 :- dynamic(class_subject_teacher_times/4).
 :- dynamic(coupling/4).
@@ -268,7 +269,7 @@ print_weekdays_header :-
                 ['Mon','Tue','Wed','Thu','Fri'],
                 Vs),
         align_row(Vs),
-        format("~`=t~40|\n").
+        format("~`=t~40|\n", []).
 
 with_verbatim(T, verbatim(T)).
 
