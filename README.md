@@ -6,13 +6,16 @@ See
 
 for more information.
 
-Example query:
+Sample invocation:
+
+    $ scryer-prolog simsttab.pl reqs.pl
+
+Sample query:
 
 
-    ?- consult('reqs.pl'),
-       requirements_variables(Rs, Vs),
+    ?- requirements_variables(Rs, Vs),
        labeling([ff], Vs),
        print_classes(Rs).
 
 This constructs a [timetable](timetable.txt) that satisifies the
-requirements stated in [reqs.pl](reqs.pl).
+requirements stated in [`reqs.pl`](reqs.pl).
