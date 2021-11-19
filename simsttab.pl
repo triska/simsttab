@@ -1,6 +1,6 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   Simsttab -- Simplistic school time tabler
-  Copyright (C) 2005-2020 Markus Triska triska@metalevel.at
+  Copyright (C) 2005-2021 Markus Triska triska@metalevel.at
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -235,41 +235,54 @@ v_teacher(Rs, V, N0, N) :-
 
 print_classes(Rs) :-
         classes(Cs),
-        maplist(print_class(Rs), Cs).
+        phrase(format_classes(Cs, Rs), Str),
+        format("~s", [Str]).
 
-print_class(Rs, Class) :-
-        class_days(Rs, Class, Days0),
-        transpose(Days0, Days),
-        format("\n\n\n\nClass: ~w\n\n", [Class]),
-        print_weekdays_header,
-        maplist(align_row, Days).
+format_classes([], _) --> [].
+format_classes([Class|Classes], Rs) -->
+        { class_days(Rs, Class, Days0),
+          transpose(Days0, Days) },
+        format_("\n\n\n\nClass: ~w\n\n", [Class]),
+        %weekdays_header,
+        align_rows(Days),
+        format_classes(Classes, Rs).
 
-align_row(Cs) :-
-        maplist(align_, Cs),
-        nl.
+align_rows([]) --> [].
+align_rows([R|Rs]) -->
+        align_row(R),
+        "\n",
+        align_rows(Rs).
 
-align_(free)               :- align_(verbatim('')).
-align_(class_subject(C,S)) :- align_(verbatim(C/S)).
-align_(subject(S))         :- align_(verbatim(S)).
-align_(verbatim(Element))  :- format("~|~t~w~t~8+", [Element]).
+align_row([]) --> [].
+align_row([R|Rs]) -->
+        align_(R),
+        align_row(Rs).
+
+align_(free)               --> align_(verbatim('')).
+align_(class_subject(C,S)) --> align_(verbatim(C/S)).
+align_(subject(S))         --> align_(verbatim(S)).
+align_(verbatim(Element))  --> format_("~|~t~w~t~8+", [Element]).
 
 print_teachers(Rs) :-
         teachers(Ts),
-        maplist(print_teacher(Rs), Ts).
+        phrase(format_teachers(Ts, Rs), Str),
+        format("~s", [Str]).
 
-print_teacher(Rs, Teacher) :-
-        teacher_days(Rs, Teacher, Days0),
-        transpose(Days0, Days),
-        format("\n\n\n\nTeacher: ~w\n\n", [Teacher]),
-        print_weekdays_header,
-        maplist(align_row, Days).
+format_teachers([], _) --> [].
+format_teachers([T|Ts], Rs) -->
+        { teacher_days(Rs, T, Days0),
+          transpose(Days0, Days) },
+        format_("\n\n\n\nTeacher: ~w\n\n", [T]),
+        weekdays_header,
+        align_rows(Days),
+        format_teachers(Ts, Rs).
 
-print_weekdays_header :-
-        maplist(with_verbatim,
-                ['Mon','Tue','Wed','Thu','Fri'],
-                Vs),
+weekdays_header -->
+        { maplist(with_verbatim,
+                  ['Mon','Tue','Wed','Thu','Fri'],
+                  Vs) },
         align_row(Vs),
-        format("~`=t~40|\n", []).
+        format_("~`=t~40|\n", []).
 
 with_verbatim(T, verbatim(T)).
 
