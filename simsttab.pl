@@ -112,7 +112,7 @@ slot_quotient(S, Q) :-
 list_without_nths(Es0, Ws, Es) :-
         phrase(without_(Ws, 0, Es0), Es).
 
-without_([], _, Es) --> list(Es).
+without_([], _, Es) --> seq(Es).
 without_([W|Ws], Pos0, [E|Es]) -->
         { Pos #= Pos0 + 1,
           zcompare(R, W, Pos0) },
@@ -170,9 +170,6 @@ constrain_room(Reqs, Room) :-
 
 
 strictly_ascending(Ls) :- chain(#<, Ls).
-
-list([])     --> [].
-list([E|Es]) --> [E], list(Es).
 
 class_req(C0, req(C1,_S,_T,_N)-_, T) :- =(C0, C1, T).
 
