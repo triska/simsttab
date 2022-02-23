@@ -1,6 +1,6 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   Simsttab -- Simplistic school time tabler
-  Copyright (C) 2005-2021 Markus Triska triska@metalevel.at
+  Copyright (C) 2005-2022 Markus Triska triska@metalevel.at
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -242,8 +242,8 @@ format_classes([], _) --> [].
 format_classes([Class|Classes], Rs) -->
         { class_days(Rs, Class, Days0),
           transpose(Days0, Days) },
-        format_("\n\n\n\nClass: ~w\n\n", [Class]),
-        %weekdays_header,
+        format_("~4nClass: ~w~2n", [Class]),
+        weekdays_header,
         align_rows(Days),
         format_classes(Classes, Rs).
 
@@ -272,7 +272,7 @@ format_teachers([], _) --> [].
 format_teachers([T|Ts], Rs) -->
         { teacher_days(Rs, T, Days0),
           transpose(Days0, Days) },
-        format_("\n\n\n\nTeacher: ~w\n\n", [T]),
+        format_("~4nTeacher: ~w~2n", [T]),
         weekdays_header,
         align_rows(Days),
         format_teachers(Ts, Rs).
@@ -282,7 +282,7 @@ weekdays_header -->
                   ['Mon','Tue','Wed','Thu','Fri'],
                   Vs) },
         align_row(Vs),
-        format_("~`=t~40|\n", []).
+        format_("~n~`=t~40|~n", []).
 
 with_verbatim(T, verbatim(T)).
 
