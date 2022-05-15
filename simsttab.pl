@@ -1,27 +1,28 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  Simsttab -- Simplistic school time tabler
-  Copyright (C) 2005-2022 Markus Triska triska@metalevel.at
+   Simsttab -- Simplistic school time tabler
+   Copyright (C) 2005-2022 Markus Triska triska@metalevel.at
 
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation; either version 2 of the License, or
-  (at your option) any later version.
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
 
-  You should have received a copy of the GNU General Public License
-  along with this program; if not, write to the Free Software
-  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 
-  For more information about this program, visit:
+   For more information about this program, visit:
 
           https://www.metalevel.at/simsttab/
           ==================================
 
+   Tested with Scryer Prolog.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
@@ -31,6 +32,7 @@
 :- use_module(library(pairs)).
 :- use_module(library(lists)).
 :- use_module(library(format)).
+:- use_module(library(pio)).
 
 :- dynamic(class_subject_teacher_times/4).
 :- dynamic(coupling/4).
@@ -232,19 +234,18 @@ v_teacher(Rs, V, N0, N) :-
 
 print_classes(Rs) :-
         classes(Cs),
-        phrase(format_classes(Cs, Rs), Str),
-        format("~s", [Str]).
+        phrase_to_stream(format_classes(Cs, Rs), user_output).
 
 format_classes([], _) --> [].
 format_classes([Class|Classes], Rs) -->
         { class_days(Rs, Class, Days0),
           transpose(Days0, Days) },
-        format_("~4nClass: ~w~2n", [Class]),
+        format_("Class: ~w~2n", [Class]),
         weekdays_header,
         align_rows(Days),
         format_classes(Classes, Rs).
 
-align_rows([]) --> [].
+align_rows([]) --> "\n\n\n".
 align_rows([R|Rs]) -->
         align_row(R),
         "\n",
@@ -258,18 +259,17 @@ align_row([R|Rs]) -->
 align_(free)               --> align_(verbatim('')).
 align_(class_subject(C,S)) --> align_(verbatim(C/S)).
 align_(subject(S))         --> align_(verbatim(S)).
-align_(verbatim(Element))  --> format_("~|~t~w~t~8+", [Element]).
+align_(verbatim(Element))  --> format_("~t~w~t~8+", [Element]).
 
 print_teachers(Rs) :-
         teachers(Ts),
-        phrase(format_teachers(Ts, Rs), Str),
-        format("~s", [Str]).
+        phrase_to_stream(format_teachers(Ts, Rs), user_output).
 
 format_teachers([], _) --> [].
 format_teachers([T|Ts], Rs) -->
         { teacher_days(Rs, T, Days0),
           transpose(Days0, Days) },
-        format_("~4nTeacher: ~w~2n", [T]),
+        format_("Teacher: ~w~2n", [T]),
         weekdays_header,
         align_rows(Days),
         format_teachers(Ts, Rs).
@@ -288,7 +288,6 @@ with_verbatim(T, verbatim(T)).
       requirements_variables(Rs, Vs),
       labeling([ff], Vs),
       print_classes(Rs).
-   %@
    %@ Class: 1a
    %@
    %@   Mon     Tue     Wed     Thu     Fri
