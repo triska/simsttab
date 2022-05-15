@@ -1,3 +1,11 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   We need to add the following discontiguous/1 directives until
+   https://github.com/mthom/scryer-prolog/issues/1202 is resolved.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+:- discontiguous(class_subject_teacher_times/4).
+:- discontiguous(class_freeslot/2).
+
 slots_per_week(35).
 slots_per_day(7).
 
