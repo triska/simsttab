@@ -124,8 +124,8 @@ without_([W|Ws], Pos0, [E|Es]) -->
 without_at_pos0(=, _, [_|Ws], Ws) --> [].
 without_at_pos0(>, E, Ws0, Ws0) --> [E].
 
-%:- list_without_nths([a,b,c,d], [3], [a,b,c]).
-%:- list_without_nths([a,b,c,d], [1,2], [a,d]).
+%:- list_without_nths("abcd", [3], "abc").
+%:- list_without_nths("abcd", [1,2], "ad").
 
 slots_couplings(Slots, F-S) :-
         nth0(F, Slots, S1),
