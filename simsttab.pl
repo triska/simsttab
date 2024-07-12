@@ -130,7 +130,9 @@ without_at_pos0(>, E, Ws0, Ws0) --> [E].
 slots_couplings(Slots, F-S) :-
         nth0(F, Slots, S1),
         nth0(S, Slots, S2),
-        S2 #= S1 + 1.
+        S2 #= S1 + 1,
+        slot_quotient(S1, Q),
+        slot_quotient(S2, Q).
 
 constrain_subject(req(Class,Subj,_Teacher,_Num)-Slots) :-
         strictly_ascending(Slots), % break symmetry
